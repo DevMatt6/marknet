@@ -14,7 +14,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 			attribute="data-theme"
 			defaultTheme="system"
 			enableSystem
-			disableTransitionOnChange={false}
+			disableTransitionOnChange
 			{...props}
 		>
 			{children}
@@ -22,7 +22,13 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 	);
 }
 
-export function ThemeToggle({ className }: { className?: string }) {
+export function ThemeToggle({
+	className,
+	iconColor,
+}: {
+	className?: string;
+	iconColor?: string;
+}) {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 
@@ -65,7 +71,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 				display: "inline-flex",
 				alignItems: "center",
 				justifyContent: "center",
-				color: "var(--foreground)",
+				color: iconColor ?? "var(--foreground)",
 				padding: 0,
 			}}
 		>

@@ -48,14 +48,17 @@ export function Navbar() {
 					padding: "0 clamp(24px, 5vw, 80px)",
 					background: scrolled ? "var(--background)" : "transparent",
 					transition: "background 300ms ease, border-color 300ms ease",
+					borderBottom: scrolled
+						? "1px solid var(--border)"
+						: "1px solid rgba(255,255,255,0.15)",
 				}}
 			>
 				{/* Left — logo */}
 				<Link href="/">
 					<Logo
 						variant={lightContent ? "light" : "dark"}
-						width={160}
-						height={60}
+						width={140}
+						height={40}
 					/>
 				</Link>
 
@@ -123,32 +126,31 @@ export function Navbar() {
 
 				{/* Right — actions */}
 				<div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-					<ThemeToggle />
+					<ThemeToggle iconColor={lightContent ? "#ffffff" : undefined} />
 
 					{/* Demo CTA — hidden on mobile */}
 					<Link
 						href="/contatti"
 						className={cn("hidden md:inline-flex")}
 						style={{
-							padding: "10px 24px",
-							background: demoBg ? "var(--accent)" : "var(--primary)",
+							padding: "8px 16px",
+							background: demoBg ? "var(--primary)" : "var(--accent)",
 							color: demoBg
 								? "var(--accent-foreground)"
 								: "var(--primary-foreground)",
 							fontSize: "var(--text-sm)",
 							fontWeight: 500,
 							textDecoration: "none",
-							borderRadius: 0,
 							border: "none",
 							cursor: "pointer",
-							transition: "background 200ms, color 200ms",
+							transition: "background 500ms, color 500ms",
 							alignItems: "center",
 							justifyContent: "center",
 						}}
 						onMouseEnter={() => setDemoBg(true)}
 						onMouseLeave={() => setDemoBg(false)}
 					>
-						Richiedi Demo
+						Richiedi una consulenza
 					</Link>
 					{/* Hamburger — mobile only */}
 					<button

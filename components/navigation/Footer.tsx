@@ -55,17 +55,7 @@ export function Footer() {
 				{/* Col 1 — brand */}
 				<ScrollReveal variant="fadeUp" delay={0}>
 					<Logo variant="light" width={160} height={60} />
-					<p
-						style={{
-							fontSize: "var(--text-sm)",
-							opacity: 0.6,
-							maxWidth: 320,
-							marginTop: 12,
-							marginBottom: 0,
-						}}
-					>
-						Biometria Digitalizzata per la diagnosi e il trattamento posturale.
-					</p>
+
 					<div
 						style={{
 							marginTop: 24,
@@ -75,10 +65,10 @@ export function Footer() {
 						}}
 					>
 						<span style={{ fontSize: "var(--text-xs)", opacity: 0.5 }}>
-							Via Ippolito Nievo, 61 — 00153 Roma
+							Via Ludovico Micara, 41 - 00165 Roma RM
 						</span>
 						<Link
-							href="mailto:info@medical-support.it"
+							href="mailto:info@progettiserviziv.it"
 							style={{
 								fontSize: "var(--text-xs)",
 								opacity: 0.5,
@@ -86,7 +76,7 @@ export function Footer() {
 								textDecoration: "none",
 							}}
 						>
-							info@medical-support.it
+							info@progettiserviziv.it
 						</Link>
 						<Link
 							href="tel:+393475183978"
@@ -102,29 +92,37 @@ export function Footer() {
 					</div>
 				</ScrollReveal>
 
-				{/* Col 2 — prodotti */}
+				{/* Col 2 — navigazione */}
 				<ScrollReveal variant="fadeUp" delay={0.1}>
-					<p
-						style={{
-							fontWeight: 600,
-							fontSize: "var(--text-sm)",
-							marginTop: 0,
-							marginBottom: 16,
-						}}
-					>
-						Prodotti
-					</p>
-					{siteConfig.products.map((product) => (
-						<Link
-							key={product.slug}
-							href={`/prodotti/${product.slug}`}
-							style={linkStyle}
-							onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-							onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
+					<div>
+						<p
+							style={{
+								fontWeight: 600,
+								fontSize: "var(--text-sm)",
+								marginTop: 0,
+								marginBottom: "var(--space-4)",
+							}}
 						>
-							{product.name}
-						</Link>
-					))}
+							Navigazione
+						</p>
+						{siteConfig.nav.map((item) => (
+							<Link
+								key={item.href}
+								href={item.href}
+								style={{
+									color: "inherit",
+									opacity: 0.6,
+									fontSize: "var(--text-sm)",
+									textDecoration: "none",
+									display: "block",
+									padding: "4px 0",
+									transition: "opacity 200ms",
+								}}
+							>
+								{item.label}
+							</Link>
+						))}
+					</div>
 				</ScrollReveal>
 
 				{/* Col 3 — navigazione */}
@@ -197,7 +195,7 @@ export function Footer() {
 				}}
 			>
 				<span style={{ fontSize: "var(--text-xs)", opacity: 1 }}>
-					© 2026 Medical Support S.r.l.
+					© 2026 Progetti e Servizi V S.r.l.
 				</span>
 				<span
 					style={{

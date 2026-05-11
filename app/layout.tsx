@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { LenisProvider } from "@/providers/LenisProvider";
@@ -10,19 +10,18 @@ import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
 
-const figtree = Figtree({
+const manrope = Manrope({
 	subsets: ["latin"],
 	weight: ["400", "500", "600", "700", "800"],
-	variable: "--font-figtree",
+	variable: "--font-manrope",
 	display: "swap",
 });
 
 export const metadata: Metadata = {
-	title: {
-		default: siteConfig.name,
-		template: `%s | ${siteConfig.name}`,
-	},
-	description: siteConfig.description,
+	title:
+		"Ristrutturazione Ambienti con Architetto Dedicato | Progetti e Servizi V",
+	description:
+		"Ristrutturazione di ambienti residenziali, commerciali e strutture ricettive. Un architetto al tuo fianco — dalla prima idea alla consegna delle chiavi.",
 };
 
 export default function RootLayout({
@@ -31,13 +30,14 @@ export default function RootLayout({
 	return (
 		<html lang="it" suppressHydrationWarning>
 			<body
-				className={figtree.variable}
-				style={{ fontFamily: "var(--font-figtree), sans-serif" }}
+				className={manrope.variable}
+				style={{ fontFamily: "var(--font-manrope), sans-serif" }}
 			>
 				<ThemeProvider>
 					<LenisProvider>
 						<NavbarThemeProvider>
 							<Navbar />
+							<CustomCursor />
 							<PageTransition>{children}</PageTransition>
 							<Footer />
 						</NavbarThemeProvider>

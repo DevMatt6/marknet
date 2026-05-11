@@ -93,7 +93,7 @@ export function CustomCursor() {
 					width: 8,
 					height: 8,
 					borderRadius: "50%",
-					backgroundColor: "var(--primary)",
+					backgroundColor: "var(--accent)",
 					pointerEvents: "none",
 					zIndex: 9999,
 				}}
@@ -112,7 +112,7 @@ export function CustomCursor() {
 					translateX: "-50%",
 					translateY: "-50%",
 					borderRadius: "50%",
-					border: "1.5px solid var(--primary)",
+					border: "1.5px solid var(--accent)",
 					backgroundColor: "transparent",
 					pointerEvents: "none",
 					zIndex: 9999,
