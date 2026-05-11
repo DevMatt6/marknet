@@ -8,6 +8,7 @@ import { MobileDrawer } from "@/components/navigation/MobileDrawer";
 import { ThemeToggle } from "@/providers/ThemeProvider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import type { NavItem } from "@/types";
 import { Menu } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { useNavbarTheme } from "@/providers/NavbarThemeProvider";
@@ -97,7 +98,10 @@ export function Navbar() {
 									>
 										{item.label}
 									</button>
-									<MegaMenu isOpen={menuOpen} items={item.children!} />
+									<MegaMenu
+										isOpen={menuOpen}
+										items={(item as NavItem).children ?? []}
+									/>
 								</div>
 							);
 						}

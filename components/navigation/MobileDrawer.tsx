@@ -9,6 +9,7 @@ import { ChevronDown } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { staggerContainer } from "@/lib/animations";
+import type { NavItem } from "@/types";
 
 interface MobileDrawerProps {
 	isOpen: boolean;
@@ -73,7 +74,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 						overflowY: "auto",
 					}}
 				>
-					{siteConfig.nav.map((item) => {
+					{(siteConfig.nav as NavItem[]).map((item) => {
 						const hasChildren =
 							"children" in item &&
 							Array.isArray(item.children) &&
@@ -150,7 +151,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 														delayChildren: 0,
 													}}
 												>
-													{item.children!.map((child) => (
+													{((item as NavItem).children ?? []).map((child) => (
 														<motion.div key={child.href} variants={itemVariant}>
 															<Link
 																href={child.href}

@@ -22,3 +22,13 @@ export interface Project {
 	year: string;
 	image: string;
 }
+
+export interface Product {
+	slug: string;
+	name: string;
+	category?: string;
+	description?: string;
+	image?: string;
+	features?: string[];
+	specs?: Record<string, string>;
+}
