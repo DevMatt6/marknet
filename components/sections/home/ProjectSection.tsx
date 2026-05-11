@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { SplitLinkButton } from "@/components/ui/SplitLinkButton";
 
 const sectionPad: React.CSSProperties = {
 	paddingBlock: "clamp(80px, 10vw, 140px)",
@@ -230,22 +231,13 @@ export function ProjectSection() {
 			</div>
 
 			{/* Link tutti i progetti */}
-			<ScrollReveal variant="fadeUp" delay={0.1}>
-				<div style={{ marginTop: "var(--space-10)", textAlign: "center" }}>
-					<Link
-						href="/progetti"
-						style={{
-							fontSize: "var(--text-sm)",
-							fontWeight: 600,
-							color: "var(--accent)",
-							textDecoration: "none",
-							letterSpacing: "0.05em",
-						}}
-					>
-						Vedi tutti i progetti →
-					</Link>
-				</div>
-			</ScrollReveal>
+			<div style={{ marginTop: 32, display: "flex", justifyContent: "center" }}>
+				<SplitLinkButton
+					href="/progetti"
+					label="Vedi tutti i progetti"
+					delay={0.45}
+				/>
+			</div>
 		</section>
 	);
 }

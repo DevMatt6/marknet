@@ -24,7 +24,7 @@ export function PageTransition({ children }: PageTransitionProps) {
 						y: ["0%", "0%", "-100%"],
 					}}
 					transition={{
-						duration: 1.0,
+						duration: 0.4,
 						ease: EASE,
 						times: [0, 0.45, 1],
 					}}

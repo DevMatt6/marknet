@@ -12,6 +12,7 @@ import {
 	defaultTransition,
 } from "@/lib/animations";
 import { cn } from "@/lib/utils";
+import { useMemo } from "react";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 
 const variantsMap = {
@@ -45,7 +46,7 @@ export function ScrollReveal({
 	const ref = useRef<HTMLDivElement>(null);
 	const isInView = useInView(ref, { once, amount: threshold });
 
-	const MotionTag = motion.create(Tag as ElementType);
+	const MotionTag = useMemo(() => motion.create(Tag as ElementType), [Tag]);
 
 	return (
 		<MotionTag

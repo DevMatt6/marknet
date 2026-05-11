@@ -94,21 +94,23 @@ export function HeroSection() {
 					</SplitText>
 
 					{/* 3. Subheading */}
-					<ScrollReveal variant="fadeUp" delay={0.5}>
-						<p
-							style={{
-								fontSize: "var(--text-lg)",
-								color: "rgba(255,255,255)",
-								maxWidth: 650,
-								lineHeight: 1.6,
-								marginBottom: "var(--space-10)",
-							}}
-						>
-							Ristrutturazione di ambienti residenziali, commerciali e strutture
-							ricettive. Un architetto al tuo fianco — dalla prima idea alla
-							consegna delle chiavi.
-						</p>
-					</ScrollReveal>
+					<SplitText
+						tag="p"
+						stagger={0.02}
+						delay={0.5}
+						immediate
+						style={{
+							fontSize: "var(--text-lg)",
+							color: "rgba(255,255,255,0.9)",
+							maxWidth: 650,
+							lineHeight: 1.6,
+							marginBottom: "var(--space-10)",
+						}}
+					>
+						Ristrutturazione di ambienti residenziali, commerciali e strutture
+						ricettive. Un architetto al tuo fianco — dalla prima idea alla
+						consegna delle chiavi.
+					</SplitText>
 
 					{/* 4. CTA Row */}
 					<ScrollReveal variant="fadeUp" delay={0.65}>

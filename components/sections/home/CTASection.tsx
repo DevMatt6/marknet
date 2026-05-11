@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { SplitLinkButton } from "@/components/ui/SplitLinkButton";
 
 const sectionPad: React.CSSProperties = {
 	paddingBlock: "clamp(80px, 10vw, 140px)",
@@ -72,25 +73,16 @@ export function CTASection() {
 					</p>
 				</ScrollReveal>
 
-				<ScrollReveal variant="fadeUp" delay={0.2}>
-					<MagneticButton
-						as="a"
+				{/* Link tutti i progetti */}
+				<div
+					style={{ marginTop: 32, display: "flex", justifyContent: "center" }}
+				>
+					<SplitLinkButton
 						href="/contatti"
-						style={{
-							padding: "16px 40px",
-							borderRadius: 9999,
-							background: "var(--accent)",
-							color: "#ffffff",
-							fontSize: "var(--text-sm)",
-							fontWeight: 600,
-							textDecoration: "none",
-							display: "inline-block",
-							letterSpacing: "0.04em",
-						}}
-					>
-						Prenota una consulenza gratuita
-					</MagneticButton>
-				</ScrollReveal>
+						label="Richiedi una consulenza"
+						delay={0.45}
+					/>
+				</div>
 			</div>
 		</section>
 	);

@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Ruler, Wrench, Clock } from "lucide-react";
-import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SplitLinkButton } from "@/components/ui/SplitLinkButton";
 
 const sectionPad: React.CSSProperties = {
 	paddingBlock: "clamp(80px, 10vw, 140px)",
@@ -20,17 +20,16 @@ const STEPS = [
 	{
 		icon: Wrench,
 		title: "Ristrutturazione",
-		text: "Quando il progetto è approvato e condiviso, inizia la fase operativa. I lavori sono coordinati dal nostro architetto di riferimento.",
+		text: "Quando il progetto è approvato e condiviso, inizia la fase operativa. I lavori sono coordinati dal nostro architetto..",
 	},
 	{
 		icon: Clock,
 		title: "Consegna in tempi brevi",
-		text: "Rispettiamo le scadenze. Non è uno slogan: è il risultato di anni di pianificazione rigorosa. La consegna nei tempi concordati è parte integrante del nostro contratto.",
+		text: "Rispettiamo le scadenze. Non è uno slogan: è il risultato di anni di pianificazione rigorosa.",
 	},
 ];
 
 export function ApplicationsSection() {
-	const [underlineHovered, setUnderlineHovered] = useState(false);
 	const imgRef = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll({
 		target: imgRef,
@@ -103,41 +102,13 @@ export function ApplicationsSection() {
 						</p>
 					</ScrollReveal>
 
-					<ScrollReveal variant="fadeUp" delay={0.45}>
-						<div style={{ marginTop: 32 }}>
-							<Link
-								href="/chi-siamo"
-								style={{
-									position: "relative",
-									display: "inline-block",
-									color: "var(--accent)",
-									fontSize: "var(--text-sm)",
-									fontWeight: 600,
-									textDecoration: "none",
-								}}
-								onMouseEnter={() => setUnderlineHovered(true)}
-								onMouseLeave={() => setUnderlineHovered(false)}
-							>
-								Scopri chi siamo →
-								<motion.span
-									aria-hidden
-									style={{
-										position: "absolute",
-										left: 0,
-										bottom: -2,
-										height: 1,
-										width: "100%",
-										background: "var(--accent)",
-										transformOrigin: "left",
-										display: "block",
-									}}
-									animate={{ scaleX: underlineHovered ? 1 : 0 }}
-									transition={{ duration: 0.3, ease: "easeInOut" }}
-									initial={{ scaleX: 0 }}
-								/>
-							</Link>
-						</div>
-					</ScrollReveal>
+					<div style={{ marginTop: 32 }}>
+						<SplitLinkButton
+							href="/chi-siamo"
+							label="Scopri chi siamo"
+							delay={0.45}
+						/>
+					</div>
 				</div>
 			</div>
 
