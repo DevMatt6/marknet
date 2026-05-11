@@ -55,7 +55,7 @@ export function ProductsSection() {
 						maxWidth: 850,
 					}}
 				>
-					Dall'arredo su misura agli ambienti commerciali progettiamo ogni
+					Dall&apos;arredo su misura agli ambienti commerciali progettiamo ogni
 					spazio con cura.
 				</h2>
 			</ScrollReveal>
@@ -108,7 +108,7 @@ export function ProductsSection() {
 
 							<p
 								style={{
-									fontSize: "var(--text-base)",
+									fontSize: "var(--text-md)",
 									color: "var(--foreground)",
 									lineHeight: 1.7,
 								}}

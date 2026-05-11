@@ -30,7 +30,7 @@ export function SoftwareSection() {
 						style={{
 							position: "relative",
 							width: "100%",
-							aspectRatio: "16/9",
+							aspectRatio: "4/3",
 							borderRadius: 16,
 							overflow: "hidden",
 						}}
@@ -48,9 +48,23 @@ export function SoftwareSection() {
 				{/* Destra: testo */}
 				<div>
 					<ScrollReveal variant="fadeUp" delay={0}>
+						<p
+							style={{
+								fontSize: "var(--text-sm)",
+								color: "var(--surface)",
+								fontWeight: 600,
+								letterSpacing: "0.1em",
+								textTransform: "uppercase",
+								marginBottom: "var(--space-4)",
+							}}
+						>
+							Arte e tecnica
+						</p>
+					</ScrollReveal>
+					<ScrollReveal variant="fadeUp" delay={0}>
 						<h2
 							style={{
-								fontSize: "var(--text-4xl)",
+								fontSize: "var(--text-hero)",
 								fontWeight: 500,
 								color: "#ffffff",
 								lineHeight: 1.1,
@@ -58,14 +72,14 @@ export function SoftwareSection() {
 								fontFamily: "var(--font-display)",
 							}}
 						>
-							L'architettura è un filo testo tra l'arte e la tecnica
+							L&apos;architettura è un filo teso tra l&apos;arte e la tecnica
 						</h2>
 					</ScrollReveal>
 
 					<ScrollReveal variant="fadeUp" delay={0.15}>
 						<p
 							style={{
-								fontSize: "var(--text-md)",
+								fontSize: "var(--text-lg)",
 								color: "rgba(255,255,255,0.7)",
 								lineHeight: 1.7,
 								marginBottom: "var(--space-8)",
@@ -90,7 +104,7 @@ export function SoftwareSection() {
 								fontFamily: "var(--font-display)",
 							}}
 						>
-							- Arch. A. Intindoli -
+							- Arch. Angelo Intindoli -
 						</h2>
 					</ScrollReveal>
 				</div>
