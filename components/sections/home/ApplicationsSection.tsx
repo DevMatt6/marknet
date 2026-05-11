@@ -36,7 +36,7 @@ export function ApplicationsSection() {
 		target: imgRef,
 		offset: ["start end", "end start"],
 	});
-	const scale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+	const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
 	return (
 		<section
