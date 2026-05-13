@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Ruler, Wrench, Clock } from "lucide-react";
+import { Ruler, Wrench, FileText, Clock } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SplitLinkButton } from "@/components/ui/SplitLinkButton";
 
@@ -18,9 +18,14 @@ const STEPS = [
 		text: "Tutto parte dal progetto. Prima di toccare un muro, studiamo ogni dettaglio: layout, materiali, flussi di luce e spazio.",
 	},
 	{
+		icon: FileText,
+		title: "Amministrazione",
+		text: "Gestiamo tutte le pratiche burocratiche e amministrative, sollevandoti da ogni preoccupazione.",
+	},
+	{
 		icon: Wrench,
 		title: "Ristrutturazione",
-		text: "Quando il progetto è approvato e condiviso, inizia la fase operativa. I lavori sono coordinati dal nostro architetto..",
+		text: "Quando il progetto è approvato e condiviso, inizia la fase operativa. I lavori sono coordinati dal nostro architetto.",
 	},
 	{
 		icon: Clock,
@@ -105,7 +110,7 @@ export function ApplicationsSection() {
 					<div style={{ marginTop: 32 }}>
 						<SplitLinkButton
 							href="/chi-siamo"
-							label="Scopri chi siamo"
+							label="Scopri i nostri servizi"
 							delay={0.45}
 						/>
 					</div>
@@ -165,7 +170,7 @@ export function ApplicationsSection() {
 
 								<p
 									style={{
-										fontSize: "var(--text-base)",
+										fontSize: "var(--text-sm)",
 										color: "var(--foreground)",
 										lineHeight: 1.7,
 										maxWidth: "48ch",

@@ -79,7 +79,7 @@ export function HeroSection() {
 						stagger={0.03}
 						delay={0.2}
 						immediate
-						accentWords={["fine."]}
+						accentWords={[""]}
 						accentColor="var(--accent)"
 						style={{
 							fontSize: "var(--text-hero)",
@@ -90,7 +90,7 @@ export function HeroSection() {
 							fontFamily: "var(--font-display)",
 						}}
 					>
-						Progettiamo il tuo spazio
+						Da 3 generazioni progettiamo il tuo spazio
 					</SplitText>
 
 					{/* 3. Subheading */}

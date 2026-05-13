@@ -20,7 +20,7 @@ const SECTORS = [
 	},
 	{
 		label: "Strutture Ricettive",
-		text: "Hotel, B&B, case vacanza. Creiamo spazi capaci di offrire un'esperienza memorabile agli ospiti, rispettando i vincoli normativi del settore.",
+		text: "Hotel, B&B, case vacanza. Creiamo spazi capaci di offrire un'esperienza memorabile agli ospiti, rispettando le norme di settore.",
 		image: "/images/pillow-bed-luxury-hotel-room.jpg",
 	},
 ];
@@ -71,6 +71,7 @@ export function ProductsSection() {
 				{SECTORS.map((card, i) => (
 					<ScrollReveal key={card.label} variant="fadeUp" delay={0.1 + i * 0.1}>
 						<div
+							className="group"
 							style={{
 								display: "flex",
 								flexDirection: "column",
@@ -78,9 +79,9 @@ export function ProductsSection() {
 							}}
 						>
 							<div
-								className="group relative"
+								className="relative"
 								style={{
-									height: 600,
+									height: "clamp(400px, 30vw, 600px)",
 									marginBottom: "var(--space-2)",
 									borderRadius: 20,
 									overflow: "hidden",
@@ -95,26 +96,37 @@ export function ProductsSection() {
 								/>
 							</div>
 
-							<h3
+							<div
+								className="relative overflow-hidden"
 								style={{
-									fontSize: "var(--text-xl)",
-									fontWeight: 500,
-									color: "var(--foreground)",
-									fontFamily: "var(--font-display)",
+									borderLeft: "1px solid var(--border)",
+									paddingLeft: "var(--space-4)",
 								}}
 							>
-								{card.label}
-							</h3>
+								<div className="absolute left-0 top-0 h-full w-[4px] bg-[var(--accent)] origin-top scale-y-[0.38] group-hover:scale-y-100 transition-transform duration-1000 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
 
-							<p
-								style={{
-									fontSize: "var(--text-md)",
-									color: "var(--foreground)",
-									lineHeight: 1.7,
-								}}
-							>
-								{card.text}
-							</p>
+								<h3
+									style={{
+										fontSize: "var(--text-xl)",
+										fontWeight: 500,
+										color: "var(--foreground)",
+										fontFamily: "var(--font-display)",
+										marginBottom: "var(--space-4)",
+									}}
+								>
+									{card.label}
+								</h3>
+
+								<p
+									style={{
+										fontSize: "var(--text-md)",
+										color: "var(--foreground)",
+										lineHeight: 1.7,
+									}}
+								>
+									{card.text}
+								</p>
+							</div>
 						</div>
 					</ScrollReveal>
 				))}

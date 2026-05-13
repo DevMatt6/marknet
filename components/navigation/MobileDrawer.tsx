@@ -213,7 +213,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 							color: "var(--muted-foreground)",
 						}}
 					>
-						Via Ippolito Nievo 61, Roma
+						Via Ludovico Micara, 41 - 00165 Roma RM
 					</span>
 					<Link
 						href="mailto:info@medical-support.it"
@@ -223,7 +223,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 							textDecoration: "none",
 						}}
 					>
-						info@medical-support.it
+						info@progettiserviziv.it
 					</Link>
 				</div>
 			</SheetContent>
