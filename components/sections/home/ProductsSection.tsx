@@ -8,7 +8,7 @@ const sectionPad: React.CSSProperties = {
 
 const SECTORS = [
 	{
-		label: "Residenziale",
+		label: "Ristrutturazione Residenziale",
 		text: "Appartamenti, ville, loft. Trasformiamo lo spazio in cui vivi in un luogo che rispecchia chi sei — con soluzioni funzionali e materiali di qualità.",
 		image: "/images/cozy-interior-design-with-orange-armchair-decor.jpg",
 	},
