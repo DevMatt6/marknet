@@ -109,7 +109,7 @@ export function ApplicationsSection() {
 
 					<div style={{ marginTop: 32 }}>
 						<SplitLinkButton
-							href="/chi-siamo"
+							href="/servizi"
 							label="Scopri i nostri servizi"
 							delay={0.45}
 						/>

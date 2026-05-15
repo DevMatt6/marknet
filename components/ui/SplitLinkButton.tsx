@@ -43,7 +43,8 @@ export function SplitLinkButton({
 				>
 					{label}
 				</Link>
-				<motion.div
+				<Link
+					href={href}
 					style={{
 						display: "inline-flex",
 						alignItems: "center",
@@ -61,7 +62,7 @@ export function SplitLinkButton({
 					>
 						<ArrowUpRight size={16} />
 					</motion.span>
-				</motion.div>
+				</Link>
 			</motion.div>
 		</ScrollReveal>
 	);

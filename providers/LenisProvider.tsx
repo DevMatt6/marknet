@@ -6,6 +6,7 @@ import {
 	useContext,
 	useEffect,
 	useRef,
+	useState,
 	type ReactNode,
 } from "react";
 import { useAnimationFrame } from "framer-motion";
@@ -18,18 +19,21 @@ interface LenisProviderProps {
 
 export function LenisProvider({ children }: LenisProviderProps) {
 	const lenisRef = useRef<Lenis | null>(null);
+	const [lenis, setLenis] = useState<Lenis | null>(null);
 
 	useEffect(() => {
-		const lenis = new Lenis({
+		const instance = new Lenis({
 			lerp: 0.08,
 			duration: 1.2,
 			smoothWheel: true,
 		});
-		lenisRef.current = lenis;
+		lenisRef.current = instance;
+		setLenis(instance);
 
 		return () => {
-			lenis.destroy();
+			instance.destroy();
 			lenisRef.current = null;
+			setLenis(null);
 		};
 	}, []);
 
@@ -38,9 +42,7 @@ export function LenisProvider({ children }: LenisProviderProps) {
 	});
 
 	return (
-		<LenisContext.Provider value={lenisRef.current}>
-			{children}
-		</LenisContext.Provider>
+		<LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>
 	);
 }
 

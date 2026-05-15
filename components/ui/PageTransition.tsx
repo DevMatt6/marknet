@@ -2,8 +2,9 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { Logo } from "@/components/ui/Logo";
+import { useLenis } from "@/providers/LenisProvider";
 
 // Durata totale tenda: 0.9s
 // times: [0→0%] slide-in (0–0.35) | pausa (0.35–0.55) | slide-out (0.55–1)
@@ -14,6 +15,12 @@ const CONTENT_DELAY = CURTAIN_DURATION * 0.3; // ~0.27s
 
 export function PageTransition({ children }: { children: ReactNode }) {
 	const pathname = usePathname();
+	const lenis = useLenis();
+
+	// Riporta lo scroll in cima ad ogni cambio di route
+	useEffect(() => {
+		lenis?.scrollTo(0, { immediate: true });
+	}, [pathname, lenis]);
 
 	return (
 		<>
