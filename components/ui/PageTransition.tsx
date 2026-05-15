@@ -5,28 +5,28 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { Logo } from "@/components/ui/Logo";
 
-const EASE: [number, number, number, number] = [0.76, 0, 0.24, 1];
+// Durata totale tenda: 0.9s
+// times: [0→0%] slide-in (0–0.35) | pausa (0.35–0.55) | slide-out (0.55–1)
+const CURTAIN_DURATION = 0.9;
+const CURTAIN_EASE: [number, number, number, number] = [0.76, 0, 0.24, 1];
+// Il contenuto inizia a comparire appena la tenda inizia a ritirarsi
+const CONTENT_DELAY = CURTAIN_DURATION * 0.3; // ~0.27s
 
-interface PageTransitionProps {
-	children: ReactNode;
-}
-
-export function PageTransition({ children }: PageTransitionProps) {
+export function PageTransition({ children }: { children: ReactNode }) {
 	const pathname = usePathname();
 
 	return (
 		<>
+			{/* ── Tenda ────────────────────────────────────────────────── */}
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={pathname + "-curtain"}
 					initial={{ y: "0%" }}
-					animate={{
-						y: ["0%", "0%", "-100%"],
-					}}
+					animate={{ y: ["0%", "0%", "-100%"] }}
 					transition={{
-						duration: 0.4,
-						ease: EASE,
-						times: [0, 0.45, 1],
+						duration: CURTAIN_DURATION,
+						ease: CURTAIN_EASE,
+						times: [0, 0.35, 1],
 					}}
 					style={{
 						position: "fixed",
@@ -39,30 +39,39 @@ export function PageTransition({ children }: PageTransitionProps) {
 						justifyContent: "center",
 					}}
 				>
-					{/* Logo al centro — sempre visibile durante la sosta */}
-					<div style={{ filter: "brightness(0) invert(1)" }}>
+					{/* Logo: fade in durante la sosta, fade out prima della ritirata */}
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: [0, 1, 1, 0] }}
+						transition={{
+							duration: CURTAIN_DURATION,
+							times: [0, 0.25, 0.45, 0.6],
+							ease: "easeInOut",
+						}}
+						style={{ filter: "brightness(0) invert(1)" }}
+					>
 						<Logo variant="light" />
-					</div>
+					</motion.div>
 				</motion.div>
 			</AnimatePresence>
 
-			{/* Contenuto pagina */}
-			<motion.div
-				key={pathname}
-				initial="hidden"
-				animate="visible"
-				variants={{
-					hidden: {},
-					visible: {
-						transition: {
-							delayChildren: 0.7,
-							staggerChildren: 0.08,
-						},
-					},
-				}}
-			>
-				{children}
-			</motion.div>
+			{/* ── Contenuto pagina ─────────────────────────────────────── */}
+			{/* opacity: 0 durante la tenda → fade-in quando la tenda si ritira */}
+			<AnimatePresence mode="wait">
+				<motion.div
+					key={pathname}
+					initial={{ opacity: 0, y: 40 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: -20 }}
+					transition={{
+						duration: 0.45,
+						delay: CONTENT_DELAY,
+						ease: [0.16, 1, 0.3, 1],
+					}}
+				>
+					{children}
+				</motion.div>
+			</AnimatePresence>
 		</>
 	);
 }

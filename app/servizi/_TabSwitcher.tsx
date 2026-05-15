@@ -2,58 +2,51 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { SplitLinkButton } from "@/components/ui/SplitLinkButton";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const TABS = [
 	{
-		id: "new-bms",
-		label: "New BMS",
-		image: "/images/software/new-bms.jpg",
-		title: "Piattaforma diagnostica integrata",
+		id: "residenziale",
+		link: "/servizi/residenziale",
+		label: "Residenziale",
+		image: "/images/colorful-pastel-minimal-interior-design.jpg",
+		title: "Soluzioni per il residenziale",
 		description:
-			"New BMS è il cuore del sistema Medical Support: una piattaforma software che unifica tutti i moduli diagnostici in un unico ambiente di lavoro, progettata per la clinica moderna.",
+			"Progettiamo e realizziamo impianti su misura per abitazioni private e condomini, garantendo comfort, efficienza energetica e massima affidabilità in ogni ambiente domestico.",
 		features: [
-			"Analisi statica e dinamica del carico plantare",
-			"Report clinici in formato PDF e DICOM",
-			"Sincronizzazione cloud con TELEPOSTUROLOGIA",
+			"Progettazione personalizzata per ogni tipologia abitativa",
+			"Impianti ad alta efficienza energetica e basso impatto ambientale",
+			"Assistenza e manutenzione continuativa post-intervento",
 		],
 	},
 	{
-		id: "rebiodes",
-		label: "RebioDes",
-		image: "/images/software/rebiodes.jpg",
-		title: "Rieducazione biofeedback",
+		id: "commerciale",
+		link: "/servizi/commerciale",
+		label: "Commerciale",
+		image:
+			"/images/neoclassical-style-interior-design-with-decor-furnishings.jpg",
+		title: "Soluzioni per il commerciale",
 		description:
-			"RebioDes è il modulo dedicato alla riabilitazione posturale attraverso protocolli di biofeedback personalizzabili, con visualizzazione in tempo reale dei parametri pressori.",
+			"Offriamo servizi integrati per uffici, negozi, centri commerciali e spazi direzionali, con soluzioni scalabili che ottimizzano i consumi e garantiscono la continuità operativa.",
 		features: [
-			"Protocolli di training personalizzabili per ogni paziente",
-			"Display real-time della distribuzione di carico",
-			"Export dei dati di sessione in CSV e PDF",
+			"Sistemi integrati per edifici commerciali e direzionali",
+			"Ottimizzazione dei consumi e riduzione dei costi operativi",
+			"Conformità alle normative di settore e certificazioni energetiche",
 		],
 	},
 	{
-		id: "teleposturologia",
-		label: "TELEPOSTUROLOGIA",
-		image: "/images/software/teleposturologia.jpg",
-		title: "Cloud per la posturologia",
+		id: "ricettivo",
+		link: "/servizi/ricettivo",
+		label: "Ricettivo",
+		image: "/images/pillow-bed-luxury-hotel-room.jpg",
+		title: "Soluzioni per il ricettivo",
 		description:
-			"TELEPOSTUROLOGIA è la piattaforma cloud che consente l'accesso remoto ai dati clinici, la condivisione dei referti tra professionisti e la gestione sicura delle cartelle pazienti.",
+			"Supportiamo hotel, resort e strutture ricettive con impianti tecnologici all'avanguardia, pensati per elevare l'esperienza degli ospiti e semplificare la gestione delle strutture.",
 		features: [
-			"Accesso remoto ai referti da qualsiasi dispositivo",
-			"Condivisione sicura dei referti con colleghi o pazienti",
-			"Infrastruttura GDPR compliant con cifratura end-to-end",
-		],
-	},
-	{
-		id: "biofeedback",
-		label: "Biofeedback",
-		image: "/images/software/biofeedback.jpg",
-		title: "Feedback visivo in tempo reale",
-		description:
-			"Il modulo Biofeedback fornisce al paziente un ritorno visivo immediato della propria postura durante il training, favorendo la correzione attiva degli squilibri.",
-		features: [
-			"Training posturale con feedback visivo istantaneo",
-			"Modalità gamification per aumentare la compliance del paziente",
-			"Storico completo delle sessioni con andamento nel tempo",
+			"Impianti dedicati a hotel, B&B e strutture turistiche",
+			"Automazione e controllo centralizzato degli ambienti",
+			"Interventi rapidi con minimo impatto sull'operatività",
 		],
 	},
 ] as const;
@@ -71,44 +64,77 @@ export function TabSwitcher() {
 			`}</style>
 			<section
 				style={{
-					background: "white",
-					paddingBlock: "clamp(80px,10vw,120px)",
+					paddingBlock: "clamp(80px,10vw,200px)",
 					paddingInline: "clamp(24px,5vw,80px)",
 				}}
 			>
+				{/* Header */}
+				<ScrollReveal variant="fadeUp" delay={0}>
+					<p
+						style={{
+							fontSize: "var(--text-sm)",
+							color: "var(--accent)",
+							fontWeight: 600,
+							letterSpacing: "0.1em",
+							textTransform: "uppercase",
+							marginBottom: "var(--space-4)",
+							justifyContent: "center",
+							display: "flex",
+						}}
+					>
+						Settori
+					</p>
+				</ScrollReveal>
+				{/* Titolo centrato */}
+				<ScrollReveal variant="fadeUp" delay={0.1}>
+					<h2
+						style={{
+							textAlign: "center",
+							fontSize: "var(--text-4xl)",
+							fontWeight: 500,
+							color: "var(--foreground)",
+							fontFamily: "var(--font-display)",
+							lineHeight: 1.1,
+							marginBottom: "clamp(20px,5vw,40px)",
+						}}
+					>
+						Settori in cui operiamo
+					</h2>
+				</ScrollReveal>
+
 				{/* Tab bar */}
 				<div
 					style={{
 						display: "flex",
 						flexWrap: "wrap",
-						borderBottom: "1px solid var(--border)",
+						justifyContent: "center",
 						gap: 0,
 						marginBottom: "clamp(40px,5vw,64px)",
 					}}
 				>
-					{TABS.map((tab) => (
-						<button
-							key={tab.id}
-							onClick={() => setActive(tab.id)}
-							style={{
-								background: "none",
-								border: "none",
-								borderBottom: `2px solid ${active === tab.id ? "var(--accent)" : "transparent"}`,
-								padding: "12px 24px",
-								fontSize: "var(--text-sm)",
-								fontWeight: active === tab.id ? 600 : 500,
-								color:
-									active === tab.id
-										? "var(--primary)"
-										: "var(--muted-foreground)",
-								cursor: "pointer",
-								marginBottom: -1,
-								transition: "color 200ms, border-color 200ms",
-							}}
-						>
-							{tab.label}
-						</button>
-					))}
+					<ScrollReveal variant="fadeUp" delay={0.2}>
+						{TABS.map((tab) => (
+							<button
+								key={tab.id}
+								onClick={() => setActive(tab.id)}
+								style={{
+									background:
+										active === tab.id ? "var(--accent)" : "transparent",
+									border: "none",
+									padding: "12px 24px",
+									fontSize: "var(--text-sm)",
+									fontWeight: active === tab.id ? 600 : 500,
+									color:
+										active === tab.id ? "white" : "var(--muted-foreground)",
+									cursor: "pointer",
+									marginBottom: -1,
+									transition: "color 200ms, border-color 200ms",
+								}}
+							>
+								{tab.label}
+							</button>
+						))}
+					</ScrollReveal>
 				</div>
 
 				{/* Tab content grid */}
@@ -127,6 +153,7 @@ export function TabSwitcher() {
 							aspectRatio: "4/3",
 							overflow: "hidden",
 							position: "relative",
+							borderRadius: 16,
 						}}
 					>
 						<AnimatePresence mode="wait">
@@ -221,9 +248,9 @@ export function TabSwitcher() {
 										key={feat}
 										style={{
 											display: "flex",
-											alignItems: "flex-start",
+											alignItems: "center",
 											gap: 12,
-											fontSize: "var(--text-sm)",
+											fontSize: "var(--text-md)",
 											color: "var(--primary)",
 										}}
 									>
@@ -232,14 +259,17 @@ export function TabSwitcher() {
 												width: 6,
 												height: 6,
 												background: "var(--accent)",
-												marginTop: 6,
 												flexShrink: 0,
+												borderRadius: "50%",
 											}}
 										/>
 										{feat}
 									</li>
 								))}
 							</ul>
+							<div style={{ marginTop: 60 }}>
+								<SplitLinkButton href={current.link} label="Scopri i servizi" />
+							</div>
 						</motion.div>
 					</AnimatePresence>
 				</div>

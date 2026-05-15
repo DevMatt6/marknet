@@ -7,7 +7,27 @@ export const siteConfig = {
 	url: "https://www.progettiserviziv.it",
 	nav: [
 		{ label: "Home", href: "/" },
-		{ label: "Servizi", href: "/servizi" },
+		{
+			label: "Servizi",
+			href: "/servizi",
+			children: [
+				{
+					label: "Residenziale",
+					href: "/servizi/residenziale",
+					description: "Appartamenti, ville e condomini su misura.",
+				},
+				{
+					label: "Commerciale",
+					href: "/servizi/commerciale",
+					description: "Uffici, negozi, showroom e spazi direzionali.",
+				},
+				{
+					label: "Ricettivo",
+					href: "/servizi/ricettivo",
+					description: "Hotel, B&B e strutture ricettive.",
+				},
+			],
+		},
 		{ label: "Il Metodo", href: "/il-metodo" },
 		{ label: "Progetti", href: "/progetti" },
 		{ label: "Contatti", href: "/contatti" },

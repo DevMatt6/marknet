@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SplitText } from "@/components/ui/SplitText";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { TabSwitcher } from "./_TabSwitcher";
+import { TabSwitcher } from "../servizi/_TabSwitcher";
 import { NavbarDark } from "@/components/ui/NavbarDark";
 
 /* ─── Metadata ─────────────────────────────────────────────────── */
