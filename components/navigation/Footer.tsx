@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/ui/Logo";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-const CERTS = ["Dispositivo Medico CE", "ISO 13485", "Conforme MDR 2017/745"];
+const CERTS = ["Certificazione 1", "Certificazione 2", "Certificazione 3"];
 
 const linkStyle: React.CSSProperties = {
 	color: "inherit",
@@ -125,7 +125,7 @@ export function Footer() {
 					</div>
 				</ScrollReveal>
 
-				{/* Col 3 — navigazione */}
+				{/* Col 3 — settori */}
 				<ScrollReveal variant="fadeUp" delay={0.2}>
 					<p
 						style={{
@@ -135,19 +135,25 @@ export function Footer() {
 							marginBottom: 16,
 						}}
 					>
-						Navigazione
+						Settori
 					</p>
-					{primaryNav.map((item) => (
-						<Link
-							key={item.href}
-							href={item.href}
-							style={linkStyle}
-							onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-							onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
-						>
-							{item.label}
-						</Link>
-					))}
+					{siteConfig.nav
+						.flatMap((item) =>
+							"children" in item && Array.isArray(item.children)
+								? item.children
+								: [],
+						)
+						.map((item) => (
+							<Link
+								key={item.href}
+								href={item.href}
+								style={linkStyle}
+								onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+								onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
+							>
+								{item.label}
+							</Link>
+						))}
 				</ScrollReveal>
 
 				{/* Col 4 — certificazioni */}
