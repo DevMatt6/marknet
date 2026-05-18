@@ -33,6 +33,22 @@ export const siteConfig = {
 	],
 	projects: [
 		{
+			slug: "negozio",
+			title: "Negozio Studded",
+			category: "Commerciale",
+			location: "Roma, C.so Trieste",
+			year: "2024",
+			image: "/images/projects/studded.jpeg",
+		},
+		{
+			slug: "negozio-ufficio",
+			title: "Negozio Ufficio",
+			category: "Commerciale",
+			location: "Roma, C.so Trieste",
+			year: "2024",
+			image: "/images/projects/ufficio.jpeg",
+		},
+		{
 			slug: "corso-trieste",
 			title: "Appartamento C.so Trieste",
 			category: "Residenziale",
