@@ -92,6 +92,7 @@ sector,
 heroTagline,
 }: Pick<SectorPageProps, "sector" | "heroTagline">) {
 return (
+
 <section
 style={{
 				...sectionPad,
@@ -335,6 +336,7 @@ services,
 }: Pick<SectorPageProps, "services">) {
 return (
 <>
+
 <style>{`         @media (min-width: 768px) {
           .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
@@ -454,6 +456,7 @@ tempi.
     	</>
     );
 
+sect
 }
 
 /_ ════════════════════════════════════════════════════════════════ _/
@@ -466,6 +469,7 @@ process: NonNullable<SectorPageProps["process"]>;
 }) {
 return (
 <>
+
 <style>{`         @media (min-width: 768px) {
           .process-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
@@ -760,6 +764,7 @@ if (!projects || projects.length === 0) return null;
 /_ ════════════════════════════════════════════════════════════════ _/
 function SectorCTA({ sector }: Pick<SectorPageProps, "sector">) {
 return (
+
 <section
 style={{
 				...sectionPad,

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { NavItem } from "@/types/index";
 import { cn } from "@/lib/utils";
+import { SplitLinkButton } from "@/components/ui/SplitLinkButton";
 
 interface MegaMenuProps {
 	items: NavItem[];
@@ -47,7 +48,7 @@ export function MegaMenu({ items, isOpen }: MegaMenuProps) {
 										display: "block",
 										padding: "16px 24px",
 										background: isActive
-											? "color-mix(in oklch, var(--primary) 6%, var(--background))"
+											? "color-mix(in oklch, var(--surface-2) , var(--background))"
 											: "transparent",
 										transition: "background 200ms",
 										textDecoration: "none",
@@ -134,16 +135,13 @@ export function MegaMenu({ items, isOpen }: MegaMenuProps) {
 										{activeItem.description}
 									</p>
 								)}
-								<Link
+								<SplitLinkButton
 									href={activeItem?.href ?? "#"}
-									style={{
-										color: "var(--primary)",
-										fontWeight: 500,
-										textDecoration: "none",
-									}}
-								>
-									Scopri →
-								</Link>
+									label="Scopri di più"
+									background="transparent"
+									color="var(--primary)"
+									labelPadding="0 12px 0 0"
+								/>
 							</motion.div>
 						</AnimatePresence>
 					</div>

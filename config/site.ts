@@ -6,7 +6,8 @@ export const siteConfig = {
 		"Ristrutturazione di ambienti residenziali, commerciali e strutture ricettive. Un architetto al tuo fianco — dalla prima idea alla consegna delle chiavi.",
 	url: "https://www.progettiserviziv.it",
 	nav: [
-		{ label: "Home", href: "/" },
+		{ label: "Chi Siamo", href: "/chi-siamo" },
+
 		{
 			label: "Servizi",
 			href: "/servizi",
@@ -28,18 +29,16 @@ export const siteConfig = {
 				},
 			],
 		},
-		{ label: "Il Metodo", href: "/il-metodo" },
-		{ label: "Progetti", href: "/progetti" },
 		{ label: "Contatti", href: "/contatti" },
 	],
 	projects: [
 		{
-			slug: "appartamento-prati",
-			title: "Appartamento Prati",
+			slug: "corso-trieste",
+			title: "Appartamento C.so Trieste",
 			category: "Residenziale",
-			location: "Roma, Prati",
+			location: "Roma, C.so Trieste",
 			year: "2024",
-			image: "/images/projects/appartamento-prati.jpg",
+			image: "/images/projects/csotrieste.jpg",
 		},
 		{
 			slug: "showroom-centro-storico",
@@ -47,7 +46,7 @@ export const siteConfig = {
 			category: "Commerciale",
 			location: "Roma, Centro Storico",
 			year: "2024",
-			image: "/images/projects/showroom-centro-storico.jpg",
+			image: "/images/projects/hotel1.jpg",
 		},
 		{
 			slug: "bb-trastevere",
@@ -55,7 +54,7 @@ export const siteConfig = {
 			category: "Strutture Ricettive",
 			location: "Roma, Trastevere",
 			year: "2023",
-			image: "/images/projects/bb-trastevere.jpg",
+			image: "/images/projects/ristrutturazione1.jpg",
 		},
 		{
 			slug: "villa-appia-antica",
@@ -63,7 +62,7 @@ export const siteConfig = {
 			category: "Residenziale",
 			location: "Roma, Appia",
 			year: "2023",
-			image: "/images/projects/villa-appia-antica.jpg",
+			image: "/images/projects/terrazzo.jpg",
 		},
 		{
 			slug: "uffici-eur",

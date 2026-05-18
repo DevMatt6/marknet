@@ -15,13 +15,14 @@ export default function RicettivoPage() {
 				label: "Settore Ricettivo",
 			}}
 			heroTagline="Creiamo ambienti che fanno sentire gli ospiti a casa, valorizzando ogni spazio per offrire un'esperienza indimenticabile."
-			heroImage="/images/pillow-bed-luxury-hotel-room.jpg"
+			heroImage="/images/luxury-classic-modern-bedroom-suite-hotel.jpg"
 			descriptionTitle="L'ospitalità inizia dal progetto"
 			description={[
 				"In una struttura ricettiva ogni dettaglio conta: dalla prima impressione in reception alla qualità del riposo in camera. Un progetto ben pensato si traduce direttamente in recensioni positive e clienti fedeli.",
 				"Lavoriamo con hotel, B&B, affittacamere, case vacanza e strutture agrituristiche, progettando spazi che bilanciano l'identità della struttura con la praticità gestionale.",
 				"Conosciamo le normative specifiche del settore — dalla sicurezza antincendio all'accessibilità — e ci occupiamo di ogni aspetto burocratico, permettendoti di concentrarti sull'accoglienza.",
 			]}
+			descriptionImage="/images/luxury-classic-modern-bedroom-suite-hotel.jpg"
 			services={[
 				{
 					icon: "Hotel",

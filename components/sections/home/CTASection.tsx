@@ -23,7 +23,7 @@ export function CTASection() {
 		>
 			{/* Immagine di sfondo */}
 			<Image
-				src="/images/colorful-pastel-minimal-interior-design.jpg"
+				src="/images/construction-plans-architectural-project.jpg"
 				alt=""
 				fill
 				className="object-cover"

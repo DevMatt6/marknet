@@ -6,6 +6,7 @@ import { SplitText } from "@/components/ui/SplitText";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { NavbarDark } from "@/components/ui/NavbarDark";
+import { SplitLinkButton } from "@/components/ui/SplitLinkButton";
 
 export function HeroSection() {
 	const { scrollY } = useScroll();
@@ -121,38 +122,13 @@ export function HeroSection() {
 								flexWrap: "wrap",
 							}}
 						>
-							<MagneticButton
-								as="a"
-								href="/il-metodo"
-								style={{
-									padding: "14px 32px",
-									background: "var(--accent)",
-									color: "white",
-									fontSize: "var(--text-sm)",
-									fontWeight: 600,
-									textDecoration: "none",
-									display: "inline-block",
-								}}
-							>
-								Scopri il nostro metodo
-							</MagneticButton>
-
-							<MagneticButton
-								as="a"
-								href="/progetti"
-								style={{
-									padding: "14px 32px",
-									background: "transparent",
-									color: "#ffffff",
-									fontSize: "var(--text-sm)",
-									fontWeight: 600,
-									border: "1px solid rgba(255,255,255,0.4)",
-									textDecoration: "none",
-									display: "inline-block",
-								}}
-							>
-								Guarda i progetti
-							</MagneticButton>
+							<div>
+								<SplitLinkButton
+									href="/chi-siamo"
+									label="Chi siamo"
+									delay={0.45}
+								/>
+							</div>
 						</div>
 					</ScrollReveal>
 				</div>

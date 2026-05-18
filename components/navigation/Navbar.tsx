@@ -9,7 +9,7 @@ import { ThemeToggle } from "@/providers/ThemeProvider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { useNavbarTheme } from "@/providers/NavbarThemeProvider";
 
@@ -66,7 +66,13 @@ export function Navbar() {
 				{/* Centre — desktop nav */}
 				<nav
 					className={cn("hidden md:flex")}
-					style={{ alignItems: "center", gap: 0 }}
+					style={{
+						position: "absolute",
+						left: "50%",
+						transform: "translateX(-50%)",
+						alignItems: "center",
+						gap: 0,
+					}}
 				>
 					{siteConfig.nav.map((item) => {
 						const hasChildren =
@@ -94,9 +100,19 @@ export function Navbar() {
 											fontWeight: 500,
 											opacity: menuOpen ? 0.7 : 1,
 											transition: "opacity 200ms",
+											display: "flex",
+											alignItems: "center",
 										}}
 									>
 										{item.label}
+										<ChevronDown
+											size={14}
+											style={{
+												marginLeft: 4,
+												transition: "transform 200ms",
+												transform: menuOpen ? "rotate(180deg)" : "rotate(0deg)",
+											}}
+										/>
 									</button>
 									<MegaMenu
 										isOpen={menuOpen}

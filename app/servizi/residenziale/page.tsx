@@ -12,16 +12,17 @@ export default function ResidenzialePage() {
 			sector={{
 				slug: "residenziale",
 				name: "Progettiamo insieme il tuo spazio ideale",
-				label: "Settore Residenziale",
+				label: "Ristrutturazione Residenziale",
 			}}
 			heroTagline="Trasformiamo la tua casa in uno spazio su misura, curandone ogni dettaglio dalla progettazione alla consegna."
 			heroImage="/images/colorful-pastel-minimal-interior-design.jpg"
-			descriptionTitle="La tua casa, il tuo stile"
+			descriptionTitle="Il tuo progetto, la nostra passione"
 			description={[
 				"Ogni abitazione racconta una storia. Il nostro approccio parte dall'ascolto: capire come vivi, cosa ami e come immagini i tuoi spazi è il primo passo verso un progetto davvero tuo.",
 				"Dall'appartamento in città alla villa, affianchiamo i nostri clienti con competenza e cura, gestendo ogni fase dei lavori — dai permessi alla direzione cantiere — con totale trasparenza.",
 				"Qualità dei materiali, rispetto dei tempi e attenzione ai dettagli sono i principi che guidano ogni nostro intervento residenziale.",
 			]}
+			descriptionImage="/images/projects/csotrieste.jpg"
 			services={[
 				{
 					icon: "TextSearch",

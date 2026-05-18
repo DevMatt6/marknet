@@ -2,18 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SplitText } from "@/components/ui/SplitText";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-const PROFESSIONI = [
-	"Fisiatra",
-	"Ortopedico",
-	"Podologo",
-	"Fisioterapista",
-	"Neurologo",
-	"Medico dello Sport",
-	"Odontoiatra",
-	"Osteopata",
-	"Ortottista",
+const TIPO_PROGETTO = [
+	"Residenziale",
+	"Commerciale",
+	"Ricettivo",
+	"Ristrutturazione",
+	"Interior Design",
 	"Altro",
 ];
 
@@ -24,6 +20,7 @@ const labelStyle: React.CSSProperties = {
 	letterSpacing: "0.08em",
 	marginBottom: 6,
 	color: "var(--accent)",
+	fontWeight: 600,
 };
 
 function fieldStyle(hasError: boolean): React.CSSProperties {
@@ -44,7 +41,7 @@ function fieldStyle(hasError: boolean): React.CSSProperties {
 export function ContactForm() {
 	const [nome, setNome] = useState("");
 	const [cognome, setCognome] = useState("");
-	const [professione, setProfessione] = useState("");
+	const [tipo, setTipo] = useState("");
 	const [email, setEmail] = useState("");
 	const [messaggio, setMessaggio] = useState("");
 	const [loading, setLoading] = useState(false);
@@ -78,6 +75,7 @@ export function ContactForm() {
 				}
 			`}</style>
 			<div
+				id="form"
 				className="contact-grid"
 				style={{
 					display: "grid",
@@ -100,6 +98,7 @@ export function ContactForm() {
 							margin: 0,
 							marginBottom: 32,
 							color: "white",
+							fontFamily: "var(--font-display)",
 						}}
 					>
 						Scrivici
@@ -114,23 +113,19 @@ export function ContactForm() {
 								exit={{ opacity: 0 }}
 								transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
 								style={{
-									color: "var(--primary)",
+									color: "white",
 									fontSize: "var(--text-base)",
 									fontWeight: 500,
 									paddingBlock: 32,
 								}}
 							>
-								✓ Messaggio inviato. Ti contatteremo presto.
+								✓ Messaggio inviato. Ti ricontatteremo entro 24 ore.
 							</motion.div>
 						) : (
 							<motion.form
 								key="form"
 								onSubmit={handleSubmit}
-								style={{
-									display: "flex",
-									flexDirection: "column",
-									gap: 20,
-								}}
+								style={{ display: "flex", flexDirection: "column", gap: 20 }}
 								initial={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 							>
@@ -144,7 +139,7 @@ export function ContactForm() {
 									}}
 								>
 									<div>
-										<label style={labelStyle}>Nome</label>
+										<label style={labelStyle}>Nome *</label>
 										<input
 											type="text"
 											value={nome}
@@ -163,18 +158,18 @@ export function ContactForm() {
 									</div>
 								</div>
 
-								{/* Professione */}
+								{/* Tipo di progetto */}
 								<div>
-									<label style={labelStyle}>Professione</label>
+									<label style={labelStyle}>Tipo di progetto</label>
 									<select
-										value={professione}
-										onChange={(e) => setProfessione(e.target.value)}
+										value={tipo}
+										onChange={(e) => setTipo(e.target.value)}
 										style={fieldStyle(false)}
 									>
 										<option value="">Seleziona</option>
-										{PROFESSIONI.map((p) => (
-											<option key={p} value={p}>
-												{p}
+										{TIPO_PROGETTO.map((t) => (
+											<option key={t} value={t}>
+												{t}
 											</option>
 										))}
 									</select>
@@ -182,7 +177,7 @@ export function ContactForm() {
 
 								{/* Email */}
 								<div>
-									<label style={labelStyle}>Email</label>
+									<label style={labelStyle}>Email *</label>
 									<input
 										type="email"
 										value={email}
@@ -193,7 +188,7 @@ export function ContactForm() {
 
 								{/* Messaggio */}
 								<div>
-									<label style={labelStyle}>Messaggio</label>
+									<label style={labelStyle}>Messaggio *</label>
 									<textarea
 										value={messaggio}
 										onChange={(e) => setMessaggio(e.target.value)}
@@ -250,82 +245,69 @@ export function ContactForm() {
 					</AnimatePresence>
 				</div>
 
-				{/* DESTRA — info card */}
-				<div
-					style={{
-						padding: "clamp(32px,4vw,48px)",
-					}}
-				>
-					<SplitText
-						tag="h3"
-						style={{
-							fontWeight: 500,
-							fontSize: "var(--text-3xl)",
-							lineHeight: 1.2,
-							margin: 0,
-							marginBottom: 24,
-							color: "var(--primary)",
-						}}
-						accentWords={["Contattaci", "per", "maggiori", "informazioni"]}
-						accentColor="var(--accent)"
-					>
-						Contattaci per maggiori informazioni sui nostri prodotti
-					</SplitText>
-					<span
-						style={{
-							fontSize: "var(--text-sm)",
-							color: "var(--muted-foreground)",
-							display: "block",
-							padding: "16px 0",
-							borderBottom: "1px solid var(--border)",
-						}}
-					>
-						Via Ippolito Nievo, 61 — 00153 Roma
-					</span>
-					<a
-						href="tel:+393475183978"
-						style={{
-							fontSize: "var(--text-sm)",
-							color: "var(--muted-foreground)",
-							display: "block",
-							padding: "16px 0",
-							borderBottom: "1px solid var(--border)",
-							textDecoration: "none",
-						}}
-					>
-						+39 347 518 3978
-					</a>
-					<a
-						href="mailto:info@medical-support.it"
-						style={{
-							fontSize: "var(--text-sm)",
-							color: "var(--muted-foreground)",
-							display: "block",
-							padding: "16px 0",
-							borderBottom: "1px solid var(--border)",
-							textDecoration: "none",
-						}}
-					>
-						info@medical-support.it
-					</a>
-					<span
-						style={{
-							marginTop: 24,
-							display: "block",
-							fontSize: "var(--text-xs)",
-							textTransform: "uppercase",
-							letterSpacing: "0.08em",
-							color: "var(--muted-foreground)",
-							marginBottom: 8,
-						}}
-					>
-						Partner
-					</span>
-					<img
-						src="/images/partner/logo-confimea.svg"
-						alt="Partner CONFIIMEA Sanità"
-						style={{ display: "block", height: 50 }}
-					/>
+				{/* DESTRA — info */}
+				<div style={{ padding: "clamp(32px,4vw,48px) 0" }}>
+					<ScrollReveal variant="fadeUp" delay={0}>
+						<h2
+							style={{
+								fontWeight: 500,
+								fontSize: "var(--text-3xl)",
+								lineHeight: 1.2,
+								margin: 0,
+								marginBottom: 24,
+								color: "var(--foreground)",
+								fontFamily: "var(--font-display)",
+							}}
+						>
+							Inizia il tuo progetto con noi.
+						</h2>
+					</ScrollReveal>
+
+					<ScrollReveal variant="fadeUp" delay={0.1}>
+						<span
+							style={{
+								fontSize: "var(--text-sm)",
+								color: "var(--muted-foreground)",
+								display: "block",
+								padding: "16px 0",
+								borderBottom: "1px solid var(--border)",
+							}}
+						>
+							Via Ludovico Micara, 41 — 00165 Roma
+						</span>
+					</ScrollReveal>
+
+					<ScrollReveal variant="fadeUp" delay={0.15}>
+						<a
+							href="tel:+393475183978"
+							style={{
+								fontSize: "var(--text-sm)",
+								color: "var(--muted-foreground)",
+								display: "block",
+								padding: "16px 0",
+								borderBottom: "1px solid var(--border)",
+								textDecoration: "none",
+							}}
+						>
+							+39 347 518 3978
+						</a>
+					</ScrollReveal>
+
+					<ScrollReveal variant="fadeUp" delay={0.2}>
+						<a
+							href="mailto:info@progettiserviziv.it"
+							style={{
+								fontSize: "var(--text-sm)",
+								color: "var(--muted-foreground)",
+								display: "block",
+								padding: "16px 0",
+								borderBottom: "1px solid var(--border)",
+								textDecoration: "none",
+							}}
+						>
+							info@progettiserviziv.it
+						</a>
+					</ScrollReveal>
 				</div>
 			</div>
 		</>

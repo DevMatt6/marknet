@@ -15,13 +15,12 @@ const SECTORS = [
 	{
 		label: "Commerciale",
 		text: "Uffici, showroom, negozi. Progettiamo ambienti di lavoro e vendita che comunicano professionalità e mettono il cliente al centro.",
-		image:
-			"/images/neoclassical-style-interior-design-with-decor-furnishings.jpg",
+		image: "/images/modern-minimalist-office.jpg",
 	},
 	{
 		label: "Strutture Ricettive",
 		text: "Hotel, B&B, case vacanza. Creiamo spazi capaci di offrire un'esperienza memorabile agli ospiti, rispettando le norme di settore.",
-		image: "/images/pillow-bed-luxury-hotel-room.jpg",
+		image: "/images/luxury-classic-modern-bedroom-suite-hotel.jpg",
 	},
 ];
 

@@ -24,8 +24,7 @@ const TABS = [
 		id: "commerciale",
 		link: "/servizi/commerciale",
 		label: "Commerciale",
-		image:
-			"/images/neoclassical-style-interior-design-with-decor-furnishings.jpg",
+		image: "/images/modern-minimalist-office.jpg",
 		title: "Soluzioni per il commerciale",
 		description:
 			"Offriamo servizi integrati per uffici, negozi, centri commerciali e spazi direzionali, con soluzioni scalabili che ottimizzano i consumi e garantiscono la continuità operativa.",
@@ -39,7 +38,7 @@ const TABS = [
 		id: "ricettivo",
 		link: "/servizi/ricettivo",
 		label: "Ricettivo",
-		image: "/images/pillow-bed-luxury-hotel-room.jpg",
+		image: "/images/luxury-classic-modern-bedroom-suite-hotel.jpg",
 		title: "Soluzioni per il ricettivo",
 		description:
 			"Supportiamo hotel, resort e strutture ricettive con impianti tecnologici all'avanguardia, pensati per elevare l'esperienza degli ospiti e semplificare la gestione delle strutture.",
@@ -119,7 +118,7 @@ export function TabSwitcher() {
 								onClick={() => setActive(tab.id)}
 								style={{
 									background:
-										active === tab.id ? "var(--accent)" : "transparent",
+										active === tab.id ? "var(--accent)" : "var(--surface-2)",
 									border: "none",
 									padding: "12px 24px",
 									fontSize: "var(--text-sm)",
@@ -128,7 +127,7 @@ export function TabSwitcher() {
 										active === tab.id ? "white" : "var(--muted-foreground)",
 									cursor: "pointer",
 									marginBottom: -1,
-									transition: "color 200ms, border-color 200ms",
+									transition: "color 200ms, background-color 200ms",
 								}}
 							>
 								{tab.label}

@@ -15,13 +15,14 @@ export default function CommercialePage() {
 				label: "Settore Commerciale",
 			}}
 			heroTagline="Progettiamo spazi commerciali che comunicano il tuo brand, ottimizzano i flussi e aumentano la produttività."
-			heroImage="/images/neoclassical-style-interior-design-with-decor-furnishings.jpg"
+			heroImage="/images/modern-minimalist-office.jpg"
 			descriptionTitle="Spazi che lavorano per te"
 			description={[
 				"Un ufficio ben progettato migliora il benessere dei collaboratori e l'efficienza del lavoro. Un negozio curato nei dettagli trasforma il passante in cliente. Sappiamo quanto conti l'ambiente in cui si svolge un'attività.",
 				"Realizziamo interventi su uffici, showroom, negozi, studi professionali e centri direzionali, coniugando estetica, funzionalità e conformità alle normative commerciali.",
 				"Gestiamo l'intero ciclo — progetto, autorizzazioni, cantiere — minimizzando l'interruzione della tua attività.",
 			]}
+			descriptionImage="/images/modern-minimalist-office.jpg"
 			services={[
 				{
 					icon: "TextSearch",

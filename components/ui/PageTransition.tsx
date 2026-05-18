@@ -4,23 +4,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
 import { Logo } from "@/components/ui/Logo";
-import { useLenis } from "@/providers/LenisProvider";
 
 // Durata totale tenda: 0.9s
 // times: [0→0%] slide-in (0–0.35) | pausa (0.35–0.55) | slide-out (0.55–1)
-const CURTAIN_DURATION = 0.9;
+const CURTAIN_DURATION = 1.5;
 const CURTAIN_EASE: [number, number, number, number] = [0.76, 0, 0.24, 1];
 // Il contenuto inizia a comparire appena la tenda inizia a ritirarsi
-const CONTENT_DELAY = CURTAIN_DURATION * 0.3; // ~0.27s
+const CONTENT_DELAY = CURTAIN_DURATION * 0.4; // ~0.27s
 
 export function PageTransition({ children }: { children: ReactNode }) {
 	const pathname = usePathname();
-	const lenis = useLenis();
-
-	// Riporta lo scroll in cima ad ogni cambio di route
-	useEffect(() => {
-		lenis?.scrollTo(0, { immediate: true });
-	}, [pathname, lenis]);
 
 	return (
 		<>

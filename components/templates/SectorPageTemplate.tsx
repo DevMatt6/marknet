@@ -1,10 +1,18 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useCallback, useEffect } from "react";
+import {
+	motion,
+	useScroll,
+	useTransform,
+	useMotionValue,
+	animate,
+} from "framer-motion";
 import {
 	ArrowRight,
 	CheckCircle2,
+	ChevronLeft,
+	ChevronRight,
 	Sparkles,
 	type LucideIcon,
 	Activity,
@@ -248,7 +256,7 @@ function SectorDescription({
 					style={{
 						display: "grid",
 						gridTemplateColumns: "1fr",
-						gap: "clamp(48px,6vw,80px)",
+						gap: "clamp(32px, 5vw, 80px)",
 						alignItems: "center",
 					}}
 				>
@@ -259,12 +267,11 @@ function SectorDescription({
 								style={{
 									margin: 0,
 									textTransform: "uppercase",
-									fontSize: "var(--text-xs)",
+									fontSize: "var(--text-md)",
 									letterSpacing: "0.1em",
-									color: "white",
-									backgroundColor: "var(--accent)",
+									color: "var(--accent)",
 									display: "inline-block",
-									padding: "6px 14px",
+									fontWeight: 600,
 								}}
 							>
 								{sector.label}
@@ -308,16 +315,23 @@ function SectorDescription({
 					<ScrollReveal variant="fadeIn" delay={0.2}>
 						<div
 							ref={imageRef}
-							style={{ overflow: "hidden", aspectRatio: "4/3" }}
+							style={{
+								overflow: "hidden",
+								aspectRatio: "4/3",
+								borderRadius: 8,
+							}}
 						>
 							<motion.div
 								style={{
 									y,
 									width: "100%",
 									height: "116%",
-									background: `url(${imgSrc}) center/cover no-repeat`,
-									marginTop: "-8%",
+									backgroundImage: `url(${imgSrc})`,
+									backgroundPosition: "center",
+									backgroundSize: "cover",
+									backgroundRepeat: "no-repeat",
 									backgroundColor: "var(--muted)",
+									marginTop: "-8%",
 								}}
 							/>
 						</div>
@@ -332,128 +346,217 @@ function SectorDescription({
 /*  3. SERVICES                                                     */
 /* ════════════════════════════════════════════════════════════════ */
 function SectorServices({ services }: Pick<SectorPageProps, "services">) {
+	const half = Math.ceil(services.length / 2);
+	const firstRow = services.slice(0, half);
+	const secondRow = services.slice(half);
+
 	return (
 		<>
 			<style>{`
-        @media (min-width: 768px) {
-          .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (min-width: 1024px) {
-          .services-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
-      `}</style>
-			<section style={{ ...sectionPad, background: "var(--primary)" }}>
+				@media (max-width: 767px) {
+					.svc-grid { grid-template-columns: 1fr !important; }
+				}
+			`}</style>
+			<section
+				style={{
+					...sectionPad,
+					paddingBottom: 0,
+					background: "var(--background)",
+				}}
+			>
 				{/* Header */}
 				<div
 					style={{
 						display: "grid",
 						gridTemplateColumns:
-							"repeat(auto-fit, minmax(min(100%,460px),1fr))",
-						gap: "clamp(24px,4vw,64px)",
+							"repeat(auto-fit, minmax(min(100%, 420px), 1fr))",
+						gap: "clamp(32px, 5vw, 80px)",
 						alignItems: "flex-end",
-						marginBottom: "clamp(40px,6vw,80px)",
+						marginBottom: "clamp(40px, 6vw, 80px)",
 					}}
 				>
-					<div>
-						<ScrollReveal variant="fadeIn" delay={0}>
+					<div style={{ display: "flex", flexDirection: "column" }}>
+						<ScrollReveal variant="fadeUp" delay={0}>
 							<p
 								style={{
-									margin: "0 0 16px",
-									textTransform: "uppercase",
-									fontSize: "var(--text-xs)",
-									letterSpacing: "0.1em",
+									fontSize: "var(--text-sm)",
 									color: "var(--accent)",
 									fontWeight: 600,
+									letterSpacing: "0.1em",
+									textTransform: "uppercase",
+									marginBottom: "var(--space-6)",
 								}}
 							>
 								Cosa offriamo
 							</p>
 						</ScrollReveal>
-						<ScrollReveal variant="fadeUp" delay={0.05}>
-							<SplitText
-								text="Servizi dedicati"
-								tag="h2"
-								stagger={0.03}
-								delay={0.1}
+						<ScrollReveal variant="fadeUp" delay={0.1}>
+							<h2
 								style={{
-									fontSize: "var(--text-3xl)",
+									fontSize: "var(--text-4xl)",
 									fontWeight: 500,
-									color: "white",
+									color: "var(--foreground)",
+									lineHeight: 1.1,
+									fontFamily: "var(--font-display)",
+									maxWidth: 600,
 									margin: 0,
-									lineHeight: 1.15,
-								}}
-							/>
-						</ScrollReveal>
-					</div>
-					<ScrollReveal variant="fadeUp" delay={0.15}>
-						<p
-							style={{
-								margin: 0,
-								fontSize: "var(--text-base)",
-								color: "rgba(255,255,255,0.65)",
-								lineHeight: 1.75,
-							}}
-						>
-							Ogni intervento è studiato sulle specificità del settore, con
-							soluzioni su misura che uniscono qualità progettuale e rispetto
-							dei tempi.
-						</p>
-					</ScrollReveal>
-				</div>
-
-				{/* Grid */}
-				<div
-					className="services-grid"
-					style={{
-						display: "grid",
-						gridTemplateColumns: "1fr",
-						gap: "clamp(1px,0.5vw,24px)",
-					}}
-				>
-					{services.map((svc, i) => (
-						<ScrollReveal
-							key={svc.title}
-							variant="fadeUp"
-							delay={0.1 + i * 0.08}
-						>
-							<div
-								style={{
-									padding: "clamp(24px,3vw,40px)",
-									background: "color-mix(in srgb, white 8%, transparent)",
-									border: "1.5px solid var(--accent)",
-									display: "flex",
-									flexDirection: "column",
-									gap: 16,
-									height: "100%",
 								}}
 							>
-								<span style={{ color: "var(--accent)" }}>
-									<DynamicIcon name={svc.icon} />
-								</span>
-								<p
-									style={{
-										margin: 0,
-										fontSize: "var(--text-base)",
-										fontWeight: 600,
-										color: "white",
-									}}
-								>
-									{svc.title}
-								</p>
-								<p
-									style={{
-										margin: 0,
-										fontSize: "var(--text-sm)",
-										color: "rgba(255,255,255,0.55)",
-										lineHeight: 1.7,
-									}}
-								>
-									{svc.description}
-								</p>
-							</div>
+								Servizi dedicati
+							</h2>
 						</ScrollReveal>
-					))}
+					</div>
+					<div style={{ display: "flex", flexDirection: "column" }}>
+						<ScrollReveal variant="fadeUp" delay={0.3}>
+							<p
+								style={{
+									marginTop: 32,
+									marginBottom: 0,
+									fontSize: "var(--text-base)",
+									color: "var(--foreground)",
+									lineHeight: 1.75,
+								}}
+							>
+								Ogni intervento è studiato sulle specificità del settore, con
+								soluzioni su misura che uniscono qualità progettuale e rispetto
+								dei tempi.
+							</p>
+						</ScrollReveal>
+					</div>
 				</div>
+
+				{/* Prima riga */}
+				<div
+					style={{
+						marginInline: "calc(-1 * clamp(24px, 5vw, 80px))",
+						borderTop: "1px solid var(--border)",
+						borderBottom: "1px solid var(--border)",
+					}}
+				>
+					<div
+						className="svc-grid"
+						style={{
+							display: "grid",
+							gridTemplateColumns: `repeat(${firstRow.length}, 1fr)`,
+							paddingInline: "clamp(24px, 5vw, 80px)",
+						}}
+					>
+						{firstRow.map((svc, i) => (
+							<ScrollReveal
+								key={svc.title}
+								className="step-card"
+								variant="fadeUp"
+								delay={0.1 + i * 0.1}
+							>
+								<div
+									style={{
+										paddingTop: "var(--space-12)",
+										paddingBottom: "var(--space-12)",
+										paddingRight: "clamp(24px, 3vw, 40px)",
+									}}
+								>
+									<div
+										style={{
+											color: "var(--accent)",
+											marginBottom: "var(--space-12)",
+											lineHeight: 0,
+										}}
+									>
+										<DynamicIcon name={svc.icon} size={40} />
+									</div>
+									<h3
+										style={{
+											fontSize: "var(--text-lg)",
+											fontWeight: 500,
+											color: "var(--foreground)",
+											marginBottom: "var(--space-3)",
+											fontFamily: "var(--font-display)",
+										}}
+									>
+										{svc.title}
+									</h3>
+									<p
+										style={{
+											fontSize: "var(--text-sm)",
+											color: "var(--foreground)",
+											lineHeight: 1.7,
+											maxWidth: "48ch",
+										}}
+									>
+										{svc.description}
+									</p>
+								</div>
+							</ScrollReveal>
+						))}
+					</div>
+				</div>
+
+				{/* Seconda riga */}
+				{secondRow.length > 0 && (
+					<div
+						style={{
+							marginInline: "calc(-1 * clamp(24px, 5vw, 80px))",
+							borderBottom: "1px solid var(--border)",
+						}}
+					>
+						<div
+							className="svc-grid"
+							style={{
+								display: "grid",
+								gridTemplateColumns: `repeat(${firstRow.length}, 1fr)`,
+								paddingInline: "clamp(24px, 5vw, 80px)",
+							}}
+						>
+							{secondRow.map((svc, i) => (
+								<ScrollReveal
+									key={svc.title}
+									className="step-card"
+									variant="fadeUp"
+									delay={0.1 + i * 0.1}
+								>
+									<div
+										style={{
+											paddingTop: "var(--space-12)",
+											paddingBottom: "var(--space-12)",
+											paddingRight: "clamp(24px, 3vw, 40px)",
+										}}
+									>
+										<div
+											style={{
+												color: "var(--accent)",
+												marginBottom: "var(--space-12)",
+												lineHeight: 0,
+											}}
+										>
+											<DynamicIcon name={svc.icon} size={40} />
+										</div>
+										<h3
+											style={{
+												fontSize: "var(--text-lg)",
+												fontWeight: 500,
+												color: "var(--foreground)",
+												marginBottom: "var(--space-3)",
+												fontFamily: "var(--font-display)",
+											}}
+										>
+											{svc.title}
+										</h3>
+										<p
+											style={{
+												fontSize: "var(--text-sm)",
+												color: "var(--foreground)",
+												lineHeight: 1.7,
+												maxWidth: "48ch",
+											}}
+										>
+											{svc.description}
+										</p>
+									</div>
+								</ScrollReveal>
+							))}
+						</div>
+					</div>
+				)}
 			</section>
 		</>
 	);
@@ -462,288 +565,221 @@ function SectorServices({ services }: Pick<SectorPageProps, "services">) {
 /* ════════════════════════════════════════════════════════════════ */
 /*  4. PROCESS (opzionale)                                          */
 /* ════════════════════════════════════════════════════════════════ */
+const PROC_CARDS_DESKTOP = 3;
+const PROC_CARDS_MOBILE = 1;
+const PROC_GAP = 24;
+
 function SectorProcess({
 	process,
 }: {
 	process: NonNullable<SectorPageProps["process"]>;
 }) {
-	return (
-		<>
-			<style>{`
-        @media (min-width: 768px) {
-          .process-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (min-width: 1024px) {
-          .process-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
-      `}</style>
-			<section style={{ ...sectionPad, background: "var(--background)" }}>
-				<ScrollReveal variant="fadeIn" delay={0}>
-					<p
-						style={{
-							margin: "0 0 12px",
-							textTransform: "uppercase",
-							fontSize: "var(--text-xs)",
-							letterSpacing: "0.1em",
-							color: "var(--accent)",
-							fontWeight: 600,
-						}}
-					>
-						Come lavoriamo
-					</p>
-				</ScrollReveal>
-				<ScrollReveal variant="fadeUp" delay={0.05}>
-					<h2
-						style={{
-							margin: "0 0 clamp(40px,5vw,72px)",
-							fontSize: "var(--text-3xl)",
-							fontWeight: 500,
-							color: "var(--foreground)",
-							lineHeight: 1.2,
-							maxWidth: 640,
-						}}
-					>
-						Il nostro processo
-					</h2>
-				</ScrollReveal>
+	const total = process.length;
+	const containerRef = useRef<HTMLDivElement>(null);
+	const [cardWidth, setCardWidth] = useState(320);
+	const cardWidthRef = useRef(320);
+	const [cardsPerView, setCardsPerView] = useState(PROC_CARDS_DESKTOP);
+	const [current, setCurrent] = useState(0);
+	const currentRef = useRef(0);
+	const x = useMotionValue(0);
+	const dragStartX = useRef(0);
+	const maxIndex = Math.max(0, total - cardsPerView);
 
-				<div
-					className="process-grid"
-					style={{
-						display: "grid",
-						gridTemplateColumns: "1fr",
-						gap: "clamp(32px,4vw,48px)",
-					}}
-				>
-					{process.map((step, i) => (
-						<ScrollReveal
-							key={step.title}
-							variant="fadeUp"
-							delay={0.1 + i * 0.08}
-						>
-							<div
-								style={{
-									display: "flex",
-									flexDirection: "column",
-									gap: 16,
-									paddingTop: 24,
-									borderTop: "2px solid var(--border)",
-								}}
-							>
-								<div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-									<span
-										style={{
-											fontSize: "var(--text-xs)",
-											fontWeight: 700,
-											color: "var(--accent)",
-											letterSpacing: "0.1em",
-											minWidth: 28,
-										}}
-									>
-										{String(i + 1).padStart(2, "0")}
-									</span>
-									<span style={{ color: "var(--accent)" }}>
-										<DynamicIcon name={step.icon} size={22} />
-									</span>
-								</div>
-								<p
-									style={{
-										margin: 0,
-										fontSize: "var(--text-base)",
-										fontWeight: 600,
-										color: "var(--foreground)",
-										lineHeight: 1.4,
-									}}
-								>
-									{step.title}
-								</p>
-								<p
-									style={{
-										margin: 0,
-										fontSize: "var(--text-sm)",
-										color: "var(--muted-foreground)",
-										lineHeight: 1.7,
-									}}
-								>
-									{step.description}
-								</p>
-							</div>
-						</ScrollReveal>
-					))}
-				</div>
-			</section>
-		</>
+	useEffect(() => {
+		const measure = () => {
+			if (!containerRef.current) return;
+			const w = containerRef.current.offsetWidth;
+			const cpv =
+				w < 768 ? PROC_CARDS_MOBILE : Math.min(PROC_CARDS_DESKTOP, total);
+			setCardsPerView(cpv);
+			const cw = Math.floor((w - PROC_GAP * (cpv - 1)) / cpv);
+			cardWidthRef.current = cw;
+			setCardWidth(cw);
+			const newMax = Math.max(0, total - cpv);
+			const clamped = Math.min(currentRef.current, newMax);
+			currentRef.current = clamped;
+			x.set(-(clamped * (cw + PROC_GAP)));
+		};
+		measure();
+		window.addEventListener("resize", measure);
+		return () => window.removeEventListener("resize", measure);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [x]);
+
+	const goTo = useCallback(
+		(index: number) => {
+			const next = Math.max(0, Math.min(index, maxIndex));
+			currentRef.current = next;
+			setCurrent(next);
+			animate(x, -(next * (cardWidthRef.current + PROC_GAP)), {
+				type: "spring",
+				stiffness: 300,
+				damping: 35,
+			});
+		},
+		[x, maxIndex],
 	);
-}
 
-/* ════════════════════════════════════════════════════════════════ */
-/*  5. PROJECTS (opzionale)                                         */
-/* ════════════════════════════════════════════════════════════════ */
-function SectorProjects({
-	projects,
-	sector,
-}: Pick<SectorPageProps, "projects" | "sector">) {
-	if (!projects || projects.length === 0) return null;
+	const handleDragEnd = useCallback(() => {
+		const delta = x.get() - dragStartX.current;
+		if (delta < -60) goTo(current + 1);
+		else if (delta > 60) goTo(current - 1);
+		else goTo(current);
+	}, [x, current, goTo]);
 
 	return (
-		<>
-			<style>{`
-        @media (min-width: 768px) {
-          .projects-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (min-width: 1280px) {
-          .projects-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
-      `}</style>
-			<section style={{ ...sectionPad, background: "var(--accent)" }}>
-				<div
-					style={{
-						display: "flex",
-						justifyContent: "space-between",
-						alignItems: "flex-end",
-						flexWrap: "wrap",
-						gap: 24,
-						marginBottom: "clamp(40px,6vw,72px)",
-					}}
-				>
-					<div>
-						<ScrollReveal variant="fadeIn" delay={0}>
-							<p
-								style={{
-									margin: "0 0 12px",
-									textTransform: "uppercase",
-									fontSize: "var(--text-xs)",
-									letterSpacing: "0.1em",
-									color: "white",
-									fontWeight: 600,
-									opacity: 0.7,
-								}}
-							>
-								Casi di successo
-							</p>
-						</ScrollReveal>
-						<ScrollReveal variant="fadeUp" delay={0.05}>
-							<h2
-								style={{
-									margin: 0,
-									fontSize: "var(--text-3xl)",
-									fontWeight: 500,
-									color: "white",
-									lineHeight: 1.15,
-								}}
-							>
-								Progetti {sector.name.toLowerCase()}
-							</h2>
-						</ScrollReveal>
-					</div>
-
-					<ScrollReveal variant="fadeUp" delay={0.1}>
-						<MagneticButton
-							as="a"
-							href="/progetti"
+		<section style={{ ...sectionPad, background: "var(--background)" }}>
+			{/* Header */}
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "flex-end",
+					marginBottom: "clamp(32px, 5vw, 56px)",
+					flexWrap: "wrap",
+					gap: 16,
+				}}
+			>
+				<div>
+					<ScrollReveal variant="fadeIn" delay={0}>
+						<p
 							style={{
-								display: "inline-flex",
-								alignItems: "center",
-								gap: 8,
-								padding: "12px 28px",
-								border: "1px solid white",
-								color: "white",
-								fontSize: "var(--text-sm)",
+								margin: "0 0 12px",
+								textTransform: "uppercase",
+								fontSize: "var(--text-xs)",
+								letterSpacing: "0.1em",
+								color: "var(--accent)",
 								fontWeight: 600,
-								textDecoration: "none",
-								background: "transparent",
 							}}
 						>
-							Tutti i progetti
-							<ArrowRight size={16} />
-						</MagneticButton>
+							Come lavoriamo
+						</p>
+					</ScrollReveal>
+					<ScrollReveal variant="fadeUp" delay={0.05}>
+						<h2
+							style={{
+								margin: 0,
+								fontSize: "var(--text-3xl)",
+								fontWeight: 500,
+								color: "var(--foreground)",
+								lineHeight: 1.2,
+								maxWidth: 640,
+							}}
+						>
+							Il nostro processo
+						</h2>
 					</ScrollReveal>
 				</div>
 
-				<div
-					className="projects-grid"
-					style={{
-						display: "grid",
-						gridTemplateColumns: "1fr",
-						gap: "clamp(1px,0.5vw,24px)",
-					}}
-				>
-					{projects.map((project, i) => (
-						<ScrollReveal
-							key={project.slug}
-							variant="fadeUp"
-							delay={0.1 + i * 0.1}
+				{maxIndex > 0 && (
+					<div style={{ display: "flex", gap: 8 }}>
+						<button
+							onClick={() => goTo(current - 1)}
+							disabled={current === 0}
+							aria-label="Passo precedente"
+							style={{
+								width: 44,
+								height: 44,
+								borderRadius: 50,
+								border: "1px solid var(--border)",
+								background: "var(--background)",
+								color: "var(--primary)",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								cursor: current === 0 ? "not-allowed" : "pointer",
+								opacity: current === 0 ? 0.4 : 1,
+								transition: "opacity 200ms",
+							}}
 						>
-							<a
-								href={`/progetti/${project.slug}`}
-								style={{ textDecoration: "none", display: "block" }}
+							<ChevronLeft size={18} />
+						</button>
+						<button
+							onClick={() => goTo(current + 1)}
+							disabled={current === maxIndex}
+							aria-label="Passo successivo"
+							style={{
+								width: 44,
+								height: 44,
+								borderRadius: 50,
+								border: "1px solid var(--border)",
+								background: "var(--background)",
+								color: "var(--primary)",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								cursor: current === maxIndex ? "not-allowed" : "pointer",
+								opacity: current === maxIndex ? 0.4 : 1,
+								transition: "opacity 200ms",
+							}}
+						>
+							<ChevronRight size={18} />
+						</button>
+					</div>
+				)}
+			</div>
+
+			{/* Carosello */}
+			<div ref={containerRef} style={{ overflow: "hidden", cursor: "grab" }}>
+				<motion.div
+					style={{ x, display: "flex", gap: PROC_GAP, width: "max-content" }}
+					drag="x"
+					dragConstraints={{
+						left: -(maxIndex * (cardWidth + PROC_GAP)),
+						right: 0,
+					}}
+					dragElastic={0.08}
+					onDragStart={() => {
+						dragStartX.current = x.get();
+					}}
+					onDragEnd={handleDragEnd}
+					whileDrag={{ cursor: "grabbing" }}
+				>
+					{process.map((step) => (
+						<div
+							key={step.title}
+							style={{
+								width: cardWidth,
+								flexShrink: 0,
+								padding: "clamp(24px, 3vw, 40px)",
+								border: "1px solid var(--border)",
+								background: "var(--background)",
+								userSelect: "none",
+								display: "flex",
+								flexDirection: "column",
+								gap: 16,
+							}}
+						>
+							<div style={{ color: "var(--accent)", lineHeight: 0 }}>
+								<DynamicIcon name={step.icon} size={36} />
+							</div>
+							<h3
+								style={{
+									margin: 0,
+									fontSize: "var(--text-lg)",
+									fontWeight: 500,
+									color: "var(--foreground)",
+									lineHeight: 1.3,
+									fontFamily: "var(--font-display)",
+								}}
 							>
-								<div
-									style={{
-										position: "relative",
-										overflow: "hidden",
-										aspectRatio: "4/3",
-										background: "var(--primary)",
-									}}
-								>
-									{/* eslint-disable-next-line @next/next/no-img-element */}
-									<img
-										src={project.image}
-										alt={project.title}
-										style={{
-											width: "100%",
-											height: "100%",
-											objectFit: "cover",
-											display: "block",
-											transition: "transform 0.5s ease",
-										}}
-										onMouseEnter={(e) => {
-											(e.currentTarget as HTMLImageElement).style.transform =
-												"scale(1.04)";
-										}}
-										onMouseLeave={(e) => {
-											(e.currentTarget as HTMLImageElement).style.transform =
-												"scale(1)";
-										}}
-									/>
-									<div
-										style={{
-											position: "absolute",
-											bottom: 0,
-											left: 0,
-											right: 0,
-											padding: "clamp(16px,2vw,28px)",
-											background:
-												"linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)",
-										}}
-									>
-										<p
-											style={{
-												margin: "0 0 4px",
-												fontSize: "var(--text-base)",
-												fontWeight: 600,
-												color: "white",
-											}}
-										>
-											{project.title}
-										</p>
-										<p
-											style={{
-												margin: 0,
-												fontSize: "var(--text-xs)",
-												color: "rgba(255,255,255,0.65)",
-											}}
-										>
-											{project.location} · {project.year}
-										</p>
-									</div>
-								</div>
-							</a>
-						</ScrollReveal>
+								{step.title}
+							</h3>
+							<p
+								style={{
+									margin: 0,
+									fontSize: "var(--text-sm)",
+									color: "var(--muted-foreground)",
+									lineHeight: 1.75,
+								}}
+							>
+								{step.description}
+							</p>
+						</div>
 					))}
-				</div>
-			</section>
-		</>
+				</motion.div>
+			</div>
+		</section>
 	);
 }
 
@@ -764,21 +800,31 @@ function SectorCTA({ sector }: Pick<SectorPageProps, "sector">) {
 			<div
 				style={{
 					position: "absolute",
-					bottom: 0,
-					left: 0,
-					right: 0,
-					height: "60%",
-					background:
-						"linear-gradient(to top, var(--accent) 0%, transparent 100%)",
+					inset: 0,
 					zIndex: 1,
 					pointerEvents: "none",
+					overflow: "hidden",
 				}}
-			/>
+			>
+				{/* eslint-disable-next-line @next/next/no-img-element */}
+				<img
+					src="/images/construction-plans-architectural-project.jpg"
+					alt=""
+					aria-hidden
+					style={{
+						width: "100%",
+						height: "100%",
+						objectFit: "cover",
+						display: "block",
+						opacity: 0.2,
+					}}
+				/>
+			</div>
 
 			<div style={{ position: "relative", zIndex: 2 }}>
 				<ScrollReveal variant="fadeUp" delay={0.05}>
 					<SplitText
-						text={`Parliamo del tuo progetto ${sector.name.toLowerCase()}`}
+						text={`Parliamo del tuo progetto `}
 						tag="h2"
 						stagger={0.03}
 						delay={0.1}
@@ -823,8 +869,8 @@ function SectorCTA({ sector }: Pick<SectorPageProps, "sector">) {
 							href="/contatti"
 							style={{
 								padding: "14px 40px",
-								background: "white",
-								color: "var(--primary)",
+								background: "var(--accent)",
+								color: "white",
 								fontSize: "var(--text-sm)",
 								fontWeight: 600,
 								textDecoration: "none",
@@ -866,7 +912,6 @@ export function SectorPageTemplate({
 	descriptionImage,
 	services,
 	process,
-	projects,
 }: SectorPageProps) {
 	return (
 		<>
@@ -883,7 +928,6 @@ export function SectorPageTemplate({
 			/>
 			<SectorServices services={services} />
 			{process && process.length > 0 && <SectorProcess process={process} />}
-			<SectorProjects projects={projects} sector={sector} />
 			<SectorCTA sector={sector} />
 		</>
 	);
