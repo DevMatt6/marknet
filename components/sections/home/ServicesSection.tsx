@@ -18,12 +18,23 @@ import {
 	CarouselNext,
 } from "@/components/ui/carousel";
 
+function getTitleText(serviceTitle: string): string {
+	const titleMap: Record<string, string> = {
+		"Content Creation": "Content Creation",
+		"Brand Strategy": "Brand Strategy",
+		Marketing: "Marketing",
+		Event: "Event",
+	};
+	return titleMap[serviceTitle] || serviceTitle;
+}
+
 const servicesData = [
 	{
 		title: "Content Creation",
-		badges: ["Video", "Audio", "Social"],
+		badges: ["Video", "Audio", "Social", "Web TV", "Streaming"],
 		description:
-			"Creazione di contenuti multimediali professionali per tutti i tuoi canali.",
+			"Creiamo contenuti che catturano l'attenzione e trasformano i visitatori in clienti. Dalla produzione video alla gestione social, ogni contenuto è studiato per emozionare e convertire.",
+		buttonText: "Trova il team di Content Creation",
 	},
 	{
 		title: "Brand Strategy",
@@ -37,21 +48,23 @@ const servicesData = [
 			"Motion Design",
 			"Product Design",
 		],
-
 		description:
-			"Progettazione di esperienze digitali e identità visive memorabili.",
+			"Costruiamo identità di brand potenti che rimangono nel cuore delle persone. Trasformiamo la tua visione in un'esperienza memorabile che differenzia il tuo business dalla concorrenza.",
+		buttonText: "Trova il team di Brand Strategy",
 	},
 	{
 		title: "Marketing",
-		badges: ["Strategy", "Digital", "Analytics"],
+		badges: ["Strategy", "Digital", "Analytics", "SEO", "Performance"],
 		description:
-			"Strategie di marketing digitali per crescere il tuo business.",
+			"Strategie di marketing che fanno crescere il tuo business in modo concreto. Uniamo creatività e dati per raggiungere il tuo pubblico giusto al momento perfetto.",
+		buttonText: "Trova il team di Marketing",
 	},
 	{
 		title: "Event",
-		badges: ["Live", "Streaming", "Production"],
+		badges: ["Live", "Streaming", "Production", "Web TV", "Broadcast"],
 		description:
-			"Organizzazione e produzione di eventi professionali e corporate.",
+			"Produciamo eventi che lasciano il segno. Dal corporate al live streaming, ogni dettaglio è curato per creare esperienze incredibili che coinvolgono il tuo pubblico.",
+		buttonText: "Trova il team di Event",
 	},
 ];
 
@@ -62,19 +75,6 @@ export default function ServicesSection() {
 			<div className="absolute inset-0 bg-bg-primary" />
 
 			<div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-				{/* Titolo */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-					className="mb-8"
-				>
-					<h2 className="font-display text-4xl uppercase leading-tight text-text-primary">
-						MArksnet
-					</h2>
-				</motion.div>
-
 				{/* Carosello */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -90,6 +90,16 @@ export default function ServicesSection() {
 						className="w-full"
 						orientation="horizontal"
 					>
+						{/* Titolo + pulsanti navigazione */}
+						<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+							<h2 className="font-display text-3xl uppercase leading-tight text-text-primary">
+								Trova il team giusto per ogni progetto
+							</h2>
+							<div className="flex items-center gap-2">
+								<CarouselPrevious className="static translate-y-0" />
+								<CarouselNext className="static translate-y-0" />
+							</div>
+						</div>
 						<CarouselContent className="-ml-2">
 							{servicesData.map((service, index) => (
 								<CarouselItem key={index} className="pl-2 md:basis-1/3">
@@ -116,7 +126,7 @@ export default function ServicesSection() {
 											</div>
 											<CardFooter className="pt-4 gap-2">
 												<ButtonDemo
-													text="Scopri più"
+													text={`Trova il team di ${service.title}`}
 													variant="secondary"
 													size="lg"
 												/>
@@ -126,8 +136,6 @@ export default function ServicesSection() {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious />
-						<CarouselNext />
 					</Carousel>
 				</motion.div>
 			</div>

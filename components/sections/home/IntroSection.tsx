@@ -6,23 +6,34 @@ export default function IntroSection() {
 	return (
 		<section className="relative py-48 bg-bg-primary overflow-hidden">
 			<div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="grid grid-cols-4 gap-x-8 gap-y-12">
+				<div className="grid grid-cols-4 gap-x-8 gap-y-12 lg:grid-cols-4">
+					{/* Mobile: colonna verticale, Desktop: grid 4 colonne */}
 					{/* Riga 1 - Titolo nelle prime 2 colonne */}
 					<motion.div
-						className="col-span-2 row-start-1"
+						className="lg:col-span-2 lg:row-start-1 col-span-4 row-start-1"
 						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, amount: 0.3 }}
 						transition={{ duration: 0.6 }}
 					>
 						<h2 className="font-display text-4xl leading-tight text-text-primary uppercase">
-							Il network creativo per connettere talenti e progetti ambiziosi
+							Il{" "}
+							<span
+								className="inline"
+								style={{
+									color: "transparent",
+									WebkitTextStroke: "1px var(--foreground)",
+								}}
+							>
+								network creativo
+							</span>{" "}
+							per connettere talenti e progetti ambiziosi
 						</h2>
 					</motion.div>
 
 					{/* Riga 2 - Testo nelle ultime 2 colonne */}
 					<motion.div
-						className="col-start-3 col-span-2 row-start-2 flex flex-col gap-6"
+						className="lg:col-start-3 lg:col-span-2 lg:row-start-2 col-span-4 row-start-2 flex flex-col gap-6"
 						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, amount: 0.3 }}

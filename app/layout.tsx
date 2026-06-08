@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { LenisProvider } from "@/providers/LenisProvider";
 
 // Display font — headings
 const anton = Anton({
@@ -36,7 +37,9 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body>
-				<ThemeProvider>{children}</ThemeProvider>
+				<LenisProvider>
+					<ThemeProvider>{children}</ThemeProvider>
+				</LenisProvider>
 			</body>
 		</html>
 	);
