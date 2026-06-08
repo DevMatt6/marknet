@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { navConfig } from "@/config/site";
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function MobileDrawer({
@@ -79,15 +79,13 @@ export default function MobileDrawer({
 
         {/* Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border">
-          <Button
-            asChild
-            className="w-full bg-accent text-accent-foreground hover:bg-accent-hover"
-            size="lg"
+          <Link
+            href="/contatti"
+            onClick={onClose}
+            className={cn(buttonVariants({ size: "lg" }), "w-full bg-accent text-accent-foreground hover:bg-accent-hover")}
           >
-            <a href="/contatti" onClick={onClose}>
-              Parliamo del tuo progetto
-            </a>
-          </Button>
+            Parliamo del tuo progetto
+          </Link>
         </div>
       </div>
     </>
