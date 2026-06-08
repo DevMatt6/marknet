@@ -1,113 +1,47 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+"use client";
 
-const sectionPad: React.CSSProperties = {
-	paddingBlock: "clamp(80px, 10vw, 140px)",
-	paddingInline: "clamp(24px, 5vw, 80px)",
-};
+import { motion } from "framer-motion";
 
-export function IntroSection() {
+export default function IntroSection() {
 	return (
-		<section
-			style={{
-				...sectionPad,
-				background: "var(--background)",
-				display: "grid",
-				gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 480px), 1fr))",
-				gap: "clamp(40px, 6vw, 100px)",
-				alignItems: "center",
-			}}
-		>
-			{/* Colonna testo */}
-			<div>
-				<ScrollReveal variant="fadeUp" delay={0}>
-					<p
-						style={{
-							fontSize: "var(--text-sm)",
-							color: "var(--accent)",
-							fontWeight: 600,
-							letterSpacing: "0.1em",
-							textTransform: "uppercase",
-							marginBottom: "var(--space-4)",
-						}}
+		<section className="relative py-48 bg-bg-primary overflow-hidden">
+			<div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="grid grid-cols-4 gap-x-8 gap-y-12">
+					{/* Riga 1 - Titolo nelle prime 2 colonne */}
+					<motion.div
+						className="col-span-2 row-start-1"
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						transition={{ duration: 0.6 }}
 					>
-						Chi siamo
-					</p>
-				</ScrollReveal>
+						<h2 className="font-display text-4xl leading-tight text-text-primary uppercase">
+							Il network creativo per connettere talenti e progetti ambiziosi
+						</h2>
+					</motion.div>
 
-				<ScrollReveal variant="fadeUp" delay={0.1}>
-					<h2
-						style={{
-							fontSize: "var(--text-4xl)",
-							fontWeight: 600,
-							color: "var(--foreground)",
-							lineHeight: 1.15,
-							marginBottom: "var(--space-6)",
-							fontFamily: "var(--font-display)",
-						}}
+					{/* Riga 2 - Testo nelle ultime 2 colonne */}
+					<motion.div
+						className="col-start-3 col-span-2 row-start-2 flex flex-col gap-6"
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						transition={{ duration: 0.6, delay: 0.2 }}
 					>
-						Chi siamo davvero
-					</h2>
-				</ScrollReveal>
-
-				<ScrollReveal variant="fadeUp" delay={0.2}>
-					<p
-						style={{
-							fontSize: "var(--text-base)",
-							color: "var(--foreground)",
-							opacity: 0.7,
-							lineHeight: 1.75,
-							marginBottom: "var(--space-4)",
-							maxWidth: "62ch",
-						}}
-					>
-						Progetti e Servizi V nasce da un'idea semplice: ristrutturare non
-						dovrebbe mai essere stressante. Ogni progetto inizia con un ascolto,
-						si sviluppa con cura e si conclude nei tempi stabiliti — senza
-						imprevisti, senza sorprese.
-					</p>
-				</ScrollReveal>
-
-				<ScrollReveal variant="fadeUp" delay={0.3}>
-					<p
-						style={{
-							fontSize: "var(--text-base)",
-							color: "var(--foreground)",
-							opacity: 0.7,
-							lineHeight: 1.75,
-							maxWidth: "62ch",
-						}}
-					>
-						Non vendiamo solo lavori edili. Offriamo un percorso guidato: dalla
-						visione iniziale al risultato finale, ogni scelta viene condivisa
-						con te da un architetto dedicato, che conosce il tuo spazio meglio
-						di chiunque altro.
-					</p>
-				</ScrollReveal>
-			</div>
-
-			{/* Colonna immagine — sostituire con next/image quando disponibile */}
-			<ScrollReveal variant="fadeUp" delay={0.15}>
-				<div
-					style={{
-						aspectRatio: "4/3",
-						background: "var(--surface)",
-						border: "1px solid rgba(10,25,50,0.08)",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-					}}
-				>
-					<p
-						style={{
-							color: "var(--foreground)",
-							opacity: 0.3,
-							fontSize: "var(--text-sm)",
-						}}
-					>
-						Fotografia d'ambiente
-					</p>
+						<p className="font-body text-base text-primary leading-relaxed">
+							Siamo un team multidisciplinare che unisce creatività e strategia
+							per dare vita a progetti ambiziosi. Dalla brand identity alla
+							produzione video, ogni progetto è costruito con cura e attenzione
+							al dettaglio.
+						</p>
+						<p className="font-body text-base text-primary leading-relaxed">
+							La nostra forza è la capacità di connettere talenti diversi
+							attorno a un obiettivo comune, garantendo qualità e coerenza in
+							ogni fase del lavoro.
+						</p>
+					</motion.div>
 				</div>
-			</ScrollReveal>
+			</div>
 		</section>
 	);
 }

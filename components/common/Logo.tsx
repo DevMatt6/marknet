@@ -1,0 +1,28 @@
+import Image from "next/image";
+
+import { cn } from "@/lib/utils";
+
+type LogoProps = {
+	className?: string;
+	priority?: boolean;
+	width?: number;
+	height?: number;
+};
+
+export default function Logo({
+	className,
+	priority = false,
+	width = 132,
+	height = 32,
+}: LogoProps) {
+	return (
+		<Image
+			src="/images/logo.svg"
+			alt="Marksnet"
+			width={width}
+			height={height}
+			priority={priority}
+			className={cn("dark:invert", className)}
+		/>
+	);
+}
