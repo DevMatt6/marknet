@@ -7,6 +7,7 @@ import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import LanguageSwitch from "./LanguageSwitch";
 
 export default function MobileDrawer({
 	isOpen,
@@ -33,7 +34,6 @@ export default function MobileDrawer({
 
 	return (
 		<>
-			{/* Overlay */}
 			<div
 				className={cn(
 					"fixed inset-0 bg-black/50 z-[60] transition-opacity",
@@ -42,14 +42,12 @@ export default function MobileDrawer({
 				onClick={onClose}
 			/>
 
-			{/* Drawer */}
 			<div
 				className={cn(
 					"fixed top-0 right-0 h-full w-full sm:w-80 bg-background z-[61] transform transition-transform border-l border-border",
 					isOpen ? "translate-x-0" : "translate-x-full",
 				)}
 			>
-				{/* Header */}
 				<div className="flex items-center justify-between h-16 px-4 border-b border-border">
 					<Link href="/" onClick={onClose} className="flex items-center">
 						<Logo className="h-8 w-auto" />
@@ -63,7 +61,10 @@ export default function MobileDrawer({
 					</button>
 				</div>
 
-				{/* Navigation */}
+				<div className="px-4 pt-6">
+					<LanguageSwitch className="w-full justify-center" />
+				</div>
+
 				<nav className="py-6 px-4 space-y-4">
 					{navConfig.navItems.map((item) => (
 						<a
@@ -77,7 +78,6 @@ export default function MobileDrawer({
 					))}
 				</nav>
 
-				{/* Footer */}
 				<div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border">
 					<Link
 						href="/contatti"

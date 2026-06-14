@@ -7,6 +7,7 @@ import IntroSection from "@/components/sections/home/IntroSection";
 import LogosSection from "@/components/sections/home/LogosSection";
 import ServicesSection from "@/components/sections/home/ServicesSection";
 import ShowreelSection from "@/components/sections/home/ShowreelSection";
+import CTASection from "@/components/sections/common/CTASection";
 
 export default function HomePage() {
 	return (
@@ -14,10 +15,12 @@ export default function HomePage() {
 			<Header />
 			<main>
 				<HeroSection />
-				<IntroSection />
 				<ShowreelSection />
+
+				<IntroSection />
 				<LogosSection />
 				<ServicesSection />
+				<CTASection />
 			</main>
 			<Footer />
 		</>

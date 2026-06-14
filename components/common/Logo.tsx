@@ -18,11 +18,12 @@ export default function Logo({
 	return (
 		<Image
 			src="/images/logo.svg"
-			alt="Marksnet"
+			alt="Marknet"
 			width={width}
 			height={height}
 			priority={priority}
-			className={cn("dark:invert", className)}
+			className={cn("block dark:invert", className)}
+			style={{ width, height: "auto" }}
 		/>
 	);
 }

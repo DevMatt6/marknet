@@ -36,15 +36,15 @@
 		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
 
 	/* ── Fluid type scale (floor 12px) ─────────────────────── */
-	--text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-	--text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
-	--text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-	--text-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem);
-	--text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);
-	--text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
-	--text-3xl: clamp(1.875rem, 1.625rem + 1.25vw, 2.5rem);
-	--text-4xl: clamp(2.5rem, 2rem + 4vw, 5.5rem);
-	--text-hero: clamp(3.5rem, 3rem + 7vw, 9rem);
+	--text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
+	--text-sm: clamp(0.875rem, 0.84rem + 0.2vw, 1rem);
+	--text-base: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
+	--text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+	--text-xl: clamp(1.25rem, 1.14rem + 0.55vw, 1.625rem);
+	--text-2xl: clamp(1.5rem, 1.3rem + 0.95vw, 2.125rem);
+	--text-3xl: clamp(1.875rem, 1.55rem + 1.6vw, 2.875rem);
+	--text-4xl: clamp(2.25rem, 1.8rem + 2.4vw, 4.25rem);
+	--text-hero: clamp(2.75rem, 2.2rem + 3.2vw, 5.25rem);
 
 	/* ── Spacing (4px grid) ───────────────────────────────── */
 	--space-1: 0.25rem;
@@ -139,9 +139,10 @@
 	--color-destructive-foreground: var(--destructive-foreground);
 
 	/* ── Typography ────────────────────────────────────────── */
-	--font-display: var(--font-anton), "Anton", sans-serif;
-	--font-body: var(--font-dm-sans), "DM Sans", sans-serif;
-	--font-sans: var(--font-dm-sans), "DM Sans", sans-serif;
+	--font-display:
+		var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+	--font-body: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+	--font-sans: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
 
 	/* ── Surface ───────────────────────────────────────────── */
 	--color-surface: var(--surface);

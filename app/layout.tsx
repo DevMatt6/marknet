@@ -1,44 +1,42 @@
 import type { Metadata } from "next";
-import { Anton, DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { LenisProvider } from "@/providers/LenisProvider";
+import { LocaleProvider } from "@/providers/LocaleProvider";
+import { detectLocale } from "@/i18n/server";
 
-// Display font — headings
-const anton = Anton({
+// Display + Body font — Plus Jakarta Sans variable
+const plusJakartaSans = Plus_Jakarta_Sans({
 	subsets: ["latin"],
-	weight: "400",
-	variable: "--font-anton",
-	display: "swap",
-});
-
-// Body font — paragraphs, UI text
-const dmSans = DM_Sans({
-	subsets: ["latin"],
-	weight: ["300", "400", "500"],
-	variable: "--font-dm-sans",
+	axes: ["wght"],
+	variable: "--font-plus-jakarta-sans",
 	display: "swap",
 });
 
 export const metadata: Metadata = {
-	title: "Marksnet — Servizi professionali",
+	title: "Marknet — Servizi professionali",
 	description: "Servizi professionali per il tuo business",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+	const locale = await detectLocale();
+
 	return (
 		<html
-			lang="it"
-			className={`${anton.variable} ${dmSans.variable}`}
+			lang={locale}
+			className={`${plusJakartaSans.variable}`}
 			suppressHydrationWarning
 		>
 			<body>
 				<LenisProvider>
-					<ThemeProvider>{children}</ThemeProvider>
+					<ThemeProvider>
+						<LocaleProvider initialLocale={locale}>{children}</LocaleProvider>
+					</ThemeProvider>
 				</LenisProvider>
 			</body>
 		</html>
