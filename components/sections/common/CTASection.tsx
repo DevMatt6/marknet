@@ -5,7 +5,7 @@ import ButtonDemo from "@/components/shadcn-space/button/button-16";
 import { useMessages } from "@/providers/LocaleProvider";
 
 export default function CTASection() {
-	const { cta } = useMessages();
+	const { homeCta } = useMessages();
 
 	return (
 		<section className="relative py-48 bg-bg-primary overflow-hidden">
@@ -18,11 +18,8 @@ export default function CTASection() {
 						viewport={{ once: true, amount: 0.3 }}
 						transition={{ duration: 0.6 }}
 					>
-						<p className="font-body text-sm uppercase tracking-widest text-text-primary/50 mb-6">
-							{cta.label}
-						</p>
 						<h2 className="font-display text-4xl md:text-5xl leading-tight text-text-primary uppercase">
-							{cta.title}
+							{homeCta.title}
 						</h2>
 					</motion.div>
 
@@ -33,8 +30,7 @@ export default function CTASection() {
 						viewport={{ once: true, amount: 0.3 }}
 						transition={{ duration: 0.6, delay: 0.15 }}
 					>
-						<ButtonDemo text={cta.primaryCta} variant="secondary" size="lg" />
-						<ButtonDemo text={cta.secondaryCta} variant="default" size="lg" />
+						<ButtonDemo text={homeCta.primaryCta} variant="secondary" size="lg" />
 					</motion.div>
 
 					<motion.div
@@ -45,7 +41,7 @@ export default function CTASection() {
 						transition={{ duration: 0.6, delay: 0.25 }}
 					>
 						<p className="font-body text-xl text-primary leading-tight">
-							{cta.description}
+							{homeCta.description}
 						</p>
 					</motion.div>
 				</div>
