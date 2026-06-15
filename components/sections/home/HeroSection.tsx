@@ -52,8 +52,8 @@ export default function HeroSection() {
 					transition={{ duration: 0.6, delay: 0.4 }}
 					className="mt-10 flex gap-4"
 				>
-					<ButtonDemo text={hero.primaryCta} variant="default" size="lg" />
-					<ButtonDemo text={hero.secondaryCta} variant="outline" size="lg" />
+					<ButtonDemo text={hero.primaryCta} variant="default" size="sm" />
+					<ButtonDemo text={hero.secondaryCta} variant="outline" size="sm" />
 				</motion.div>
 			</div>
 		</section>

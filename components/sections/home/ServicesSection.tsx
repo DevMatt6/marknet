@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import {
+	Card,
+	CardHeader,
+	CardTitle,
+	CardFooter,
+	CardDescription,
+} from "@/components/ui/card";
 import ButtonDemo from "@/components/shadcn-space/button/button-16";
 import {
 	Carousel,
@@ -13,15 +19,16 @@ import {
 } from "@/components/ui/carousel";
 import { useMessages } from "@/providers/LocaleProvider";
 
-const serviceImageSrc =
+const defaultServiceImageSrc =
 	"/images/services/man-filming-with-professional-camera.jpg";
+const marketingImageSrc = "/images/services/marketing.jpg";
 
 export default function ServicesSection() {
 	const { services } = useMessages();
 
 	return (
-		<section className="relative overflow-hidden py-48">
-			<div className="absolute inset-0 bg-bg-primary" />
+		<section className="relative overflow-hidden py-24">
+			<div className="absolute inset-0 bg-surface" />
 
 			<div className="relative z-10 mx-auto max-w-full px-4 sm:px-6 lg:px-8">
 				<motion.div
@@ -50,7 +57,10 @@ export default function ServicesSection() {
 
 						<CarouselContent className="-ml-2">
 							{services.items.map((service, index) => {
-								const imageSrc = serviceImageSrc;
+								const normalizedTitle = service.title.trim().toLowerCase();
+								const imageSrc = normalizedTitle.includes("marketing")
+									? marketingImageSrc
+									: defaultServiceImageSrc;
 
 								return (
 									<CarouselItem key={index} className="pl-2 md:basis-1/3">
@@ -71,17 +81,20 @@ export default function ServicesSection() {
 
 													<div className="absolute inset-0 flex items-end bg-[linear-gradient(to_top,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.72)_28%,rgba(0,0,0,0.38)_52%,rgba(0,0,0,0.14)_72%,rgba(0,0,0,0)_100%)] p-6">
 														<div className="w-full">
-															<CardHeader className="px-0 pt-0 pb-4">
+															<CardHeader className="px-0 pt-0 pb-8">
 																<CardTitle className="text-xl font-bold text-white">
 																	{service.title}
 																</CardTitle>
+																<CardDescription className="text-sm text-white/90">
+																	{service.description}
+																</CardDescription>
 															</CardHeader>
 															<CardFooter className="px-0 pt-0 pb-0">
 																<div className="inline-flex w-fit">
 																	<ButtonDemo
 																		text={service.buttonText}
 																		variant="default"
-																		size="lg"
+																		size="sm"
 																	/>
 																</div>
 															</CardFooter>

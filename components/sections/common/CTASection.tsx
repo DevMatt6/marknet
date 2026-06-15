@@ -30,7 +30,11 @@ export default function CTASection() {
 						viewport={{ once: true, amount: 0.3 }}
 						transition={{ duration: 0.6, delay: 0.15 }}
 					>
-						<ButtonDemo text={homeCta.primaryCta} variant="secondary" size="lg" />
+						<ButtonDemo
+							text={homeCta.primaryCta}
+							variant="secondary"
+							size="lg"
+						/>
 					</motion.div>
 
 					<motion.div

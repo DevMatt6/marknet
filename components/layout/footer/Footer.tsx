@@ -106,7 +106,7 @@ export default function Footer() {
 	) as [keyof typeof socialIcons, string][];
 
 	return (
-		<footer className="border-t border-border bg-bg-secondary">
+		<footer className="bg-bg-secondary">
 			<div className="mx-auto w-full max-w-full px-5 sm:px-8 lg:px-10">
 				{/* Main grid */}
 				<motion.div

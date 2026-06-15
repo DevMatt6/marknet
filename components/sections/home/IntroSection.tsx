@@ -73,7 +73,7 @@ export default function IntroSection() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative overflow-hidden bg-bg-primary pt-48"
+			className="relative overflow-hidden bg-bg-primary py-48"
 		>
 			<div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
 				<motion.h2

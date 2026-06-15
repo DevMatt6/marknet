@@ -27,7 +27,7 @@ export default function LogosSection() {
 					{[...logos, ...logos].map((logo, index) => (
 						<div
 							key={`${logo.id}-${index}`}
-							className="flex h-16 w-32 shrink-0 items-center justify-center rounded-2xl border border-black/8 bg-white px-6 dark:border-white/10 dark:bg-white/6 md:h-20 md:w-40"
+							className="flex h-16 w-32 shrink-0 items-center justify-center  md:h-20 md:w-40"
 						>
 							<div className="relative h-7 w-full md:h-8 dark:brightness-0 dark:invert">
 								<Image

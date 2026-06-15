@@ -13,7 +13,7 @@ export const dictionaries = {
 			highlight: "regia",
 			titleEnd: "per la tua content communication.",
 			paragraphOne:
-				"Marknet nasce per mettere in relazione brand e specialisti verticali in: strategia, Brand Design, Digitale, Eventi. Riducendo la distanza tra idea, execution e risultati.",
+				"Marknet nasce per mettere in relazione brand e specialisti verticali in: Strategia, Brand Design, Content Creation ed Eventi. Riducendo la distanza tra idea, execution e risultati.",
 		},
 		services: {
 			title: "Il team giusto per ogni progetto",
@@ -30,7 +30,7 @@ export const dictionaries = {
 						"Web Design",
 					],
 					description:
-						"Definiamo il tracciato comune che tiene insieme posizionamento, messaggi, identità e direzione strategica del brand. Dalla value proposition al brand system, costruiamo una base solida su cui far camminare campagne, contenuti, lanci e rebranding.",
+						"Dalla value proposition al brand system, costruiamo una base solida su cui far camminare campagne, contenuti, lanci e rebranding.",
 					buttonText: "Attiva il team di Brand Strategy",
 				},
 				{
@@ -43,7 +43,7 @@ export const dictionaries = {
 						"Performance Monitoring",
 					],
 					description:
-						"Creiamo contenuti che danno una voce al brand e generano engagement reale su ogni piattaforma. Format originali, storytelling e piani editoriali pensati per mantenere coerenza narrativa e rilevanza nel tempo.",
+						"Format originali, storytelling e piani editoriali pensati per mantenere coerenza narrativa e rilevanza nel tempo.",
 					buttonText: "Attiva il team di Content Creation",
 				},
 				{
@@ -57,7 +57,7 @@ export const dictionaries = {
 						"Performance Growth",
 					],
 					description:
-						"Progettiamo piattaforme digitali e attivazioni di marketing che non si limitano a informare, ma accompagnano il brand verso conversione e crescita. Strategie, contenuti e dati lavorano insieme per generare valore misurabile.",
+						"Strategie, contenuti e dati lavorano insieme per generare valore misurabile.",
 					buttonText: "Attiva il team di Marketing",
 				},
 				{
@@ -72,7 +72,7 @@ export const dictionaries = {
 					],
 					description:
 						"Disegniamo esperienze dal vivo pensate per essere vissute, raccontate e amplificate. Lanci, conferenze e attivazioni diventano asset di comunicazione che generano buzz, contenuti riutilizzabili e impatto misurabile.",
-					buttonText: "Attiva il team di Event",
+					buttonText: "Attiva il team di Eventi",
 				},
 			],
 		},
