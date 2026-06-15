@@ -9,7 +9,6 @@ import { detectLocale } from "@/i18n/server";
 // Display + Body font — Plus Jakarta Sans variable
 const plusJakartaSans = Plus_Jakarta_Sans({
 	subsets: ["latin"],
-	axes: ["wght"],
 	variable: "--font-plus-jakarta-sans",
 	display: "swap",
 });
