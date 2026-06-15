@@ -16,7 +16,6 @@ export default function HomePage() {
 				<ShowreelSection />
 				<IntroSection />
 				<ServicesSection />
-
 				<LogosSection />
 				<HomeCTASection />
 			</main>

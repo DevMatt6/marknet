@@ -71,7 +71,7 @@ export const dictionaries = {
 						"KPI Measurement",
 					],
 					description:
-						"Disegniamo esperienze dal vivo pensate per essere vissute, raccontate e amplificate. Lanci, conferenze e attivazioni diventano asset di comunicazione che generano buzz, contenuti riutilizzabili e impatto misurabile.",
+						"Eventi e conferenze diventano asset di comunicazione che generano valore, contenuti riutilizzabili e impatto misurabile.",
 					buttonText: "Attiva il team di Eventi",
 				},
 			],

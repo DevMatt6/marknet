@@ -22,8 +22,7 @@ export default function Logo({
 			width={width}
 			height={height}
 			priority={priority}
-			className={cn("block dark:invert", className)}
-			style={{ width, height: "auto" }}
+			className={cn("dark:invert", className)}
 		/>
 	);
 }
