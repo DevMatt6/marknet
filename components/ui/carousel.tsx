@@ -63,9 +63,14 @@ function Carousel({
 
 	const onSelect = React.useCallback((api: CarouselApi) => {
 		if (!api) return;
+		if (opts?.loop) {
+			setCanScrollPrev(true);
+			setCanScrollNext(true);
+			return;
+		}
 		setCanScrollPrev(api.canScrollPrev());
 		setCanScrollNext(api.canScrollNext());
-	}, []);
+	}, [opts?.loop]);
 
 	const scrollPrev = React.useCallback(() => {
 		api?.scrollPrev();
@@ -191,7 +196,6 @@ function CarouselPrevious({
 					: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
 				className,
 			)}
-			disabled={!canScrollPrev}
 			onClick={scrollPrev}
 			{...props}
 		>
@@ -221,7 +225,6 @@ function CarouselNext({
 					: "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
 				className,
 			)}
-			disabled={!canScrollNext}
 			onClick={scrollNext}
 			{...props}
 		>

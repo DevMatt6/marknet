@@ -1,14 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-	Card,
-	CardHeader,
-	CardTitle,
-	CardContent,
-	CardFooter,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import ButtonDemo from "@/components/shadcn-space/button/button-16";
 import {
 	Carousel,
@@ -19,14 +13,17 @@ import {
 } from "@/components/ui/carousel";
 import { useMessages } from "@/providers/LocaleProvider";
 
+const serviceImageSrc =
+	"/images/services/man-filming-with-professional-camera.jpg";
+
 export default function ServicesSection() {
 	const { services } = useMessages();
 
 	return (
-		<section className="relative py-48 overflow-hidden y">
+		<section className="relative overflow-hidden py-48">
 			<div className="absolute inset-0 bg-bg-primary" />
 
-			<div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+			<div className="relative z-10 mx-auto max-w-full px-4 sm:px-6 lg:px-8">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +39,7 @@ export default function ServicesSection() {
 						orientation="horizontal"
 					>
 						<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-							<h2 className="font-display text-3xl uppercase leading-tight text-text-primary">
+							<h2 className="max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-text-primary">
 								{services.title}
 							</h2>
 							<div className="flex items-center gap-2">
@@ -50,41 +47,53 @@ export default function ServicesSection() {
 								<CarouselNext className="static translate-y-0" />
 							</div>
 						</div>
+
 						<CarouselContent className="-ml-2">
-							{services.items.map((service, index) => (
-								<CarouselItem key={index} className="pl-2 md:basis-1/3">
-									<div className="p-2">
-										<Card className="h-[500px] !rounded-4xl !ring-0 !overflow-hidden flex flex-col justify-between">
-											<div>
-												<CardHeader className="pb-4">
-													<CardTitle className="font-regular text-2xl text-foreground">
-														{service.title}
-													</CardTitle>
-												</CardHeader>
-												<CardContent className="pb-4">
-													<p className="text-foreground font-regular">
-														{service.description}
-													</p>
-												</CardContent>
-												<div className="px-4 gap-2 flex flex-wrap">
-													{service.badges.map((badge, badgeIndex) => (
-														<Badge key={badgeIndex} variant="secondary">
-															{badge}
-														</Badge>
-													))}
+							{services.items.map((service, index) => {
+								const imageSrc = serviceImageSrc;
+
+								return (
+									<CarouselItem key={index} className="pl-2 md:basis-1/3">
+										<div className="p-2">
+											<Card
+												size="flush"
+												className="group/card flex h-[720px] flex-col rounded-none bg-transparent shadow-none transition-transform duration-500 ease-out hover:scale-[1.02]"
+											>
+												<div className="relative h-full w-full overflow-hidden rounded-3xl bg-muted">
+													<Image
+														src={imageSrc}
+														alt={service.title}
+														fill
+														className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
+														sizes="(max-width: 768px) 100vw, 33vw"
+														unoptimized
+													/>
+
+													<div className="absolute inset-0 flex items-end bg-[linear-gradient(to_top,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.72)_28%,rgba(0,0,0,0.38)_52%,rgba(0,0,0,0.14)_72%,rgba(0,0,0,0)_100%)] p-6">
+														<div className="w-full">
+															<CardHeader className="px-0 pt-0 pb-4">
+																<CardTitle className="text-xl font-bold text-white">
+																	{service.title}
+																</CardTitle>
+															</CardHeader>
+
+															<CardFooter className="px-0 pt-0 pb-0">
+																<div className="inline-flex w-fit">
+																	<ButtonDemo
+																		text={service.buttonText}
+																		variant="secondary"
+																		size="lg"
+																	/>
+																</div>
+															</CardFooter>
+														</div>
+													</div>
 												</div>
-											</div>
-											<CardFooter className="pt-4 gap-2">
-												<ButtonDemo
-													text={service.buttonText}
-													variant="secondary"
-													size="lg"
-												/>
-											</CardFooter>
-										</Card>
-									</div>
-								</CarouselItem>
-							))}
+											</Card>
+										</div>
+									</CarouselItem>
+								);
+							})}
 						</CarouselContent>
 					</Carousel>
 				</motion.div>

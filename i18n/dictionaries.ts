@@ -133,7 +133,7 @@ export const dictionaries = {
 						"Performance Monitoring",
 					],
 					description:
-						"We create content that gives brands a voice and drives real engagement across every platform. Original formats, storytelling and editorial planning are designed to maintain narrative consistency and long-term relevance.",
+						"We create content that gives brands a distinct voice and generates real engagement across platforms. Original formats, storytelling and editorial planning designed to maintain narrative consistency and long-term relevance.",
 					buttonText: "Activate the Content Creation team",
 				},
 				{
@@ -147,7 +147,7 @@ export const dictionaries = {
 						"Performance Growth",
 					],
 					description:
-						"We design digital platforms and marketing activations that do more than inform: they move the brand toward conversion and growth. Strategy, content and data work together to generate measurable value.",
+						"We design digital platforms and marketing activations that do more than inform — they guide brands toward conversion and growth. Strategy, content and data work together to generate measurable value.",
 					buttonText: "Activate the Marketing team",
 				},
 				{
@@ -168,15 +168,17 @@ export const dictionaries = {
 		},
 		cta: {
 			label: "Start a new project",
-			title: "Have a project in mind?",
+			title: "Do you have a project in mind?",
 			description:
-				"Tell us your idea. Together we'll build the right team and strategy to make it happen.",
-			primaryCta: "Start a new project",
+				"Tell us about your idea. We will build the right team and strategy to bring it to the right outcome.",
+			primaryCta: "Start your project",
 			secondaryCta: "Contact us",
 		},
 	},
-} as const;
+} satisfies Record<Locale, object>;
 
-export function getDictionary(locale: Locale) {
+export type Dictionary = (typeof dictionaries)[Locale];
+
+export function getDictionary(locale: Locale): Dictionary {
 	return dictionaries[locale];
 }

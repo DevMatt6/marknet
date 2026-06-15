@@ -11,7 +11,7 @@ export default function HeroSection() {
 	const { hero } = useMessages();
 
 	return (
-		<section className="relative min-h-[calc(70vh)] flex items-center justify-center overflow-hidden bg-bg-primary">
+		<section className="relative min-h-[calc(60vh)] flex items-center justify-center overflow-hidden bg-bg-primary">
 			{/* Add a video background if needed, currently commented out for performance reasons. */}
 			{/*
 			<video
@@ -35,7 +35,7 @@ export default function HeroSection() {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					className="font-display font-bold leading-tight tracking-tight text-hero md:text-hero lg:text-hero text-white max-w-5xl"
+					className="font-display font-bold leading-tight tracking-tight text-hero md:text-hero lg:text-hero text-white max-w-7xl"
 				>
 					{hero.title}
 				</motion.h1>

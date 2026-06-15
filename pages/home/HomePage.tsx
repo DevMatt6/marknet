@@ -16,10 +16,8 @@ export default function HomePage() {
 			<main>
 				<HeroSection />
 				<ShowreelSection />
-
-				<IntroSection />
-				<LogosSection />
 				<ServicesSection />
+				<IntroSection />
 				<CTASection />
 			</main>
 			<Footer />
