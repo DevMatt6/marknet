@@ -1,33 +1,36 @@
 import type { NavConfig, RoutesConfig, SiteConfig } from "@/types/site";
 
 export const siteConfig: SiteConfig = {
-  name: "",
-  title: "",
-  description: "",
-  url: "",
-  theme: {
-    default: "light", // "light" | "dark" | "system"
-    accent: "#ccff66", // lime green accent
-  },
-  social: {
-    instagram: "",
-    facebook: "",
-    linkedin: "",
-    github: "",
-  },
-  contact: {
-    email: "",
-    phone: "",
-    address: "",
-  },
+	name: "",
+	title: "",
+	description: "",
+	url: "",
+	theme: {
+		default: "light", // "light" | "dark" | "system"
+		accent: "#ccff66", // lime green accent
+	},
+	social: {
+		instagram: "",
+		facebook: "",
+		linkedin: "",
+		github: "",
+	},
+	contact: {
+		email: "",
+		phone: "",
+		address: "",
+	},
 };
 
 export const navConfig: NavConfig = {
-  navItems: [
-    // { label: "Home", href: "/" },
-  ],
+	navItems: [
+		{ label: "Home", href: "/" },
+		{ label: "Servizi", href: "/services" },
+		{ label: "Chi Siamo", href: "/about" },
+		{ label: "Contatti", href: "/contact" },
+	],
 };
 
 export const routesConfig: RoutesConfig = {
-  home: "/",
+	home: "/",
 };

@@ -22,6 +22,8 @@ export default function ShowreelSection() {
 					className="absolute inset-0 h-full w-full"
 				/>
 
+				<div className="absolute inset-0 z-10" aria-hidden="true" />
+
 				<div className="pointer-events-none absolute inset-0 bg-black/20" />
 
 				<div className="pointer-events-none absolute inset-0 flex items-center justify-center px-4">

@@ -57,7 +57,7 @@ export default function ServicesSection() {
 										<div className="p-2">
 											<Card
 												size="flush"
-												className="group/card flex h-[720px] flex-col rounded-none bg-transparent shadow-none transition-transform duration-500 ease-out hover:scale-[1.02]"
+												className="group/card flex h-[620px] flex-col rounded-none bg-transparent shadow-none transition-transform duration-500 ease-out hover:scale-[1.02]"
 											>
 												<div className="relative h-full w-full overflow-hidden rounded-3xl bg-muted">
 													<Image
@@ -76,12 +76,11 @@ export default function ServicesSection() {
 																	{service.title}
 																</CardTitle>
 															</CardHeader>
-
 															<CardFooter className="px-0 pt-0 pb-0">
 																<div className="inline-flex w-fit">
 																	<ButtonDemo
 																		text={service.buttonText}
-																		variant="secondary"
+																		variant="default"
 																		size="lg"
 																	/>
 																</div>

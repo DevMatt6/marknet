@@ -4,22 +4,19 @@ export const dictionaries = {
 	it: {
 		hero: {
 			title: "Connecting Minds and Brands",
-			description:
-				"Marknet unisce strategia, contenuti, design, digitale ed eventi per costruire brand coerenti, riconoscibili e performanti.",
+			description: "Costruisci il tuo brand. Digitale.",
 			primaryCta: "Attiva un nuovo progetto",
 			secondaryCta: "Contattaci",
 		},
 		intro: {
 			titleStart: "Siamo la",
 			highlight: "regia",
-			titleEnd: "per la tua content communication",
+			titleEnd: "per la tua content communication.",
 			paragraphOne:
-				"Marknet nasce per mettere in relazione brand e specialisti verticali in strategia, contenuti, design, digitale ed eventi, riducendo la distanza tra idea, execution e risultati.",
-			paragraphTwo:
-				"Ogni progetto prende forma dentro un network coordinato da una visione comune, così che ogni attivazione, campagna, contenuto o piattaforma rafforzi la stessa identità di marca.",
+				"Marknet nasce per mettere in relazione brand e specialisti verticali in: strategia, Brand Design, Digitale, Eventi. Riducendo la distanza tra idea, execution e risultati.",
 		},
 		services: {
-			title: "Garantiamo il team perfetto per ogni progetto",
+			title: "Il team giusto per ogni progetto",
 			items: [
 				{
 					title: "Brand Strategy",
@@ -79,13 +76,41 @@ export const dictionaries = {
 				},
 			],
 		},
-		cta: {
-			label: "Inizia un nuovo progetto",
-			title: "Hai un progetto in mente?",
+		homeCta: {
+			label: "Lavoriamo insieme",
+			title: "Il tuo brand ha bisogno del miglior team",
 			description:
-				"Raccontaci la tua idea. Costruiamo insieme il team e la strategia giusta per portarla al risultato.",
+				"Dalla brand identity alla content strategy, dal digitale agli eventi: costruiamo il team giusto per ogni fase del tuo progetto.",
 			primaryCta: "Attiva un nuovo progetto",
-			secondaryCta: "Contattaci",
+		},
+		footer: {
+			tagline: "Connecting Minds and Brands.",
+			nav: {
+				label: "Navigazione",
+				items: [
+					{ label: "Home", href: "/" },
+					{ label: "Servizi", href: "/services" },
+					{ label: "Chi siamo", href: "/about" },
+					{ label: "Contatti", href: "/contact" },
+				],
+			},
+			services: {
+				label: "Servizi",
+				items: [
+					{ label: "Brand Strategy", href: "/services" },
+					{ label: "Content Creation", href: "/services" },
+					{ label: "Marketing", href: "/services" },
+					{ label: "Event", href: "/services" },
+				],
+			},
+			contact: {
+				label: "Contatti",
+			},
+			copyright: "Tutti i diritti riservati.",
+			cta: {
+				startProject: "Avvia un progetto",
+				joinTeam: "Unisciti al team",
+			},
 		},
 	},
 	en: {
@@ -166,13 +191,41 @@ export const dictionaries = {
 				},
 			],
 		},
-		cta: {
-			label: "Start a new project",
-			title: "Do you have a project in mind?",
+		homeCta: {
+			label: "Let's work together",
+			title: "Your brand deserves a tailored strategy.",
 			description:
-				"Tell us about your idea. We will build the right team and strategy to bring it to the right outcome.",
+				"From brand identity to content strategy, from digital to events: we assemble the right team for every stage of your project.",
 			primaryCta: "Start your project",
-			secondaryCta: "Contact us",
+		},
+		footer: {
+			tagline: "Connecting Minds and Brands.",
+			nav: {
+				label: "Navigation",
+				items: [
+					{ label: "Home", href: "/" },
+					{ label: "Services", href: "/services" },
+					{ label: "About", href: "/about" },
+					{ label: "Contact", href: "/contact" },
+				],
+			},
+			services: {
+				label: "Services",
+				items: [
+					{ label: "Brand Strategy", href: "/services" },
+					{ label: "Content Creation", href: "/services" },
+					{ label: "Marketing", href: "/services" },
+					{ label: "Event", href: "/services" },
+				],
+			},
+			contact: {
+				label: "Contact",
+			},
+			copyright: "All rights reserved.",
+			cta: {
+				startProject: "Start a project",
+				joinTeam: "Join the team",
+			},
 		},
 	},
 } satisfies Record<Locale, object>;

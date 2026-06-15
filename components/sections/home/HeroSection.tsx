@@ -27,15 +27,12 @@ export default function HeroSection() {
 			</video>
 			*/}
 
-			<div className="absolute inset-0 bg-black/45" />
-			<div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/20 to-black/60" />
-
-			<div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center w-full py-24 text-center">
+			<div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center  py-24 text-center ">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					className="font-display font-bold leading-tight tracking-tight text-hero md:text-hero lg:text-hero text-white max-w-7xl"
+					className=" font-display font-bold leading-tight tracking-tight text-hero md:text-hero lg:text-hero text-foreground max-w-7xl"
 				>
 					{hero.title}
 				</motion.h1>
@@ -44,7 +41,7 @@ export default function HeroSection() {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 0.2 }}
-					className="font-body text-lg sm:text-lg font-regular text-white/90 mt-6 max-w-2xl"
+					className="font-body text-lg sm:text-lg font-regular text-foreground mt-6 max-w-2xl"
 				>
 					{hero.description}
 				</motion.p>
@@ -55,8 +52,8 @@ export default function HeroSection() {
 					transition={{ duration: 0.6, delay: 0.4 }}
 					className="mt-10 flex gap-4"
 				>
-					<ButtonDemo text={hero.primaryCta} variant="secondary" size="lg" />
-					<ButtonDemo text={hero.secondaryCta} variant="default" size="lg" />
+					<ButtonDemo text={hero.primaryCta} variant="default" size="lg" />
+					<ButtonDemo text={hero.secondaryCta} variant="outline" size="lg" />
 				</motion.div>
 			</div>
 		</section>
