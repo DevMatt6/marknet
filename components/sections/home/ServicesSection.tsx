@@ -46,7 +46,7 @@ export default function ServicesSection() {
 						orientation="horizontal"
 					>
 						<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-							<h2 className="max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-text-primary">
+							<h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-text-primary">
 								{services.title}
 							</h2>
 							<div className="flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function ServicesSection() {
 												size="flush"
 												className="group/card flex h-[620px] flex-col rounded-none bg-transparent shadow-none transition-transform duration-500 ease-out hover:scale-[1.02]"
 											>
-												<div className="relative h-full w-full overflow-hidden rounded-3xl bg-muted">
+												<div className="relative h-full w-full overflow-hidden rounded-xl bg-muted">
 													<Image
 														src={imageSrc}
 														alt={service.title}
@@ -85,15 +85,12 @@ export default function ServicesSection() {
 																<CardTitle className="text-xl font-bold text-white">
 																	{service.title}
 																</CardTitle>
-																<CardDescription className="text-sm text-white/90">
-																	{service.description}
-																</CardDescription>
 															</CardHeader>
 															<CardFooter className="px-0 pt-0 pb-0">
 																<div className="inline-flex w-fit">
 																	<ButtonDemo
 																		text={service.buttonText}
-																		variant="default"
+																		variant="secondary"
 																		size="sm"
 																	/>
 																</div>

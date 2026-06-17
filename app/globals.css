@@ -42,7 +42,7 @@
 	--text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
 	--text-xl: clamp(1.25rem, 1.14rem + 0.55vw, 1.625rem);
 	--text-2xl: clamp(1.5rem, 1.3rem + 0.95vw, 2.125rem);
-	--text-3xl: clamp(1.875rem, 1.55rem + 1.6vw, 2.875rem);
+	--text-3xl: clamp(1.875rem, 1.55rem + 1.6vw, 2.5rem);
 	--text-4xl: clamp(2.25rem, 1.8rem + 2.4vw, 4.25rem);
 	--text-hero: clamp(2.75rem, 2.2rem + 3.2vw, 5.25rem);
 
@@ -178,7 +178,7 @@
 	--primary-foreground: #ffffff;
 
 	/* Accent (lime green) */
-	--accent: #0040d4;
+	--accent: #146ef5;
 	--accent-hover: #b8f040;
 	--accent-foreground: #0a0a0a;
 
@@ -235,7 +235,7 @@
 	--primary-foreground: #0a0a0a;
 
 	/* Accent (same lime) */
-	--accent: #1603e7;
+	--accent: #146ef5;
 	--accent-hover: #d4ff7a;
 	--accent-foreground: #0a0a0a;
 
@@ -300,7 +300,7 @@
 		--secondary-foreground: #f0f0eb;
 		--muted: #1a1a1a;
 		--muted-foreground: rgba(240, 240, 235, 0.45);
-		--accent: #002de0;
+		--accent: #146ef5;
 		--accent-foreground: #0a0a0a;
 		--destructive: oklch(0.704 0.191 22.216);
 		--destructive-foreground: #f0f0eb;

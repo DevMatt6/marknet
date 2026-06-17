@@ -68,7 +68,7 @@ export default function IntroSection() {
 		target: sectionRef,
 		offset: ["start 80%", "end 50%"],
 	});
-	const fullText = `${intro.titleStart} ${intro.highlight} ${intro.titleEnd} ${intro.paragraphOne} `;
+	const fullText = `${intro.titleStart} `;
 
 	return (
 		<section
@@ -81,7 +81,7 @@ export default function IntroSection() {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, amount: 0.3 }}
 					transition={{ duration: 0.6 }}
-					className="w-full break-words font-display text-3xl font-bold leading-tight tracking-tight text-foreground [overflow-wrap:break-word]"
+					className="w-full break-words font-display text-4xl font-bold leading-tight tracking-tight text-foreground [overflow-wrap:break-word]"
 				>
 					<ScrollRevealText text={fullText} progress={scrollYProgress} />
 				</motion.h2>

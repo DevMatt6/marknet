@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 const logos = Array.from({ length: 8 }, (_, index) => ({
 	id: index,
-	src: "/images/logo.svg",
+	src: "/images/marknet-logo.svg",
 	alt: `Marks Network logo ${index + 1}`,
 }));
 
 export default function LogosSection() {
 	return (
-		<section className="relative w-full overflow-hidden bg-bg-primary py-12">
+		<section className="relative w-full overflow-hidden bg-surface py-12">
 			<div className="relative flex overflow-hidden">
 				<motion.div
 					className="flex gap-8 md:gap-12"

@@ -27,7 +27,7 @@ export default function HeroSection() {
 			</video>
 			*/}
 
-			<div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center  py-24 text-center ">
+			<div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center py-24 text-center ">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export default function HeroSection() {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 0.2 }}
-					className="font-body text-lg sm:text-lg font-regular text-foreground mt-6 max-w-2xl"
+					className="font-body text-lg sm:text-lg font-regular text-foreground mt-6 max-w-3xl"
 				>
 					{hero.description}
 				</motion.p>

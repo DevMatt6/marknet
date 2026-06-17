@@ -24,10 +24,8 @@ export const siteConfig: SiteConfig = {
 
 export const navConfig: NavConfig = {
 	navItems: [
-		{ label: "Home", href: "/" },
-		{ label: "Servizi", href: "/services" },
-		{ label: "Chi Siamo", href: "/about" },
-		{ label: "Contatti", href: "/contact" },
+		{ label: "Servizi", href: "/aziende" },
+		{ label: "Professionisti", href: "/candidati" },
 	],
 };
 

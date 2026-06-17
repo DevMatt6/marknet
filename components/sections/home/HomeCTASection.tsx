@@ -24,7 +24,7 @@ export default function HomeCTASection() {
 			{/* Overlay */}
 			<div className="absolute inset-0 bg-bg-primary" />
 
-			<div className="relative z-10 mx-auto max-w-full px-4 sm:px-6 lg:px-8">
+			<div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<motion.div
 					className="flex flex-col gap-8 "
 					initial={{ opacity: 0, y: 30 }}

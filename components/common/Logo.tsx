@@ -17,7 +17,7 @@ export default function Logo({
 }: LogoProps) {
 	return (
 		<Image
-			src="/images/logo.svg"
+			src="/images/marknet-logo.svg"
 			alt="Marknet"
 			width={width}
 			height={height}
