@@ -10,9 +10,9 @@ export default function ShowreelSection() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative w-full overflow-hidden bg-brand-900"
+			className="relative w-full overflow-hidden bg-bg-primary pb-24"
 		>
-			<div className="relative aspect-video w-full">
+			<div className="relative aspect-video h-[100%] max-w-7xl mx-auto rounded-2xl overflow-hidden ">
 				<iframe
 					src="https://www.youtube.com/embed/6AYAWmk8dQs?autoplay=1&mute=1&loop=1&playlist=6AYAWmk8dQs&controls=0&rel=0&modestbranding=1&playsinline=1"
 					title="Showreel video player"

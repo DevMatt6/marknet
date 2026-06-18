@@ -6,7 +6,7 @@ import LogosSection from "@/components/sections/home/LogosSection";
 import ServicesSection from "@/components/sections/home/ServicesSection";
 import ShowreelSection from "@/components/sections/home/ShowreelSection";
 import HomeCTASection from "@/components/sections/home/HomeCTASection";
-import HowItWorksSection from "@/components/sections/home/HowItWorksSection";
+import HowItWorksSection from "@/components/sections/home/HowItWorksSectionold";
 import RecruitingCTASection from "@/components/sections/home/RecruitingCTASection";
 
 export default function HomePage() {
@@ -15,13 +15,11 @@ export default function HomePage() {
 			<Header />
 			<main>
 				<HeroSection />
-				<ShowreelSection />
-				<IntroSection />
 				<ServicesSection />
+				<IntroSection />
+				<ShowreelSection />
 				<HowItWorksSection />
-				<LogosSection />
 				<HomeCTASection />
-				<RecruitingCTASection />
 			</main>
 			<Footer />
 		</>

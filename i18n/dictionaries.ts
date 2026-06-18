@@ -5,133 +5,213 @@ export const dictionaries = {
 		hero: {
 			title: "Connecting Minds and Brands",
 			description:
-				"Un network specializzato per realizzare progetti video con i talenti giusti, in modo rapido e su misura",
-			primaryCta: "Attiva un nuovo progetto",
+				"Un network di professionisti video selezionati per ogni fase della tua produzione. Dal brief alla consegna, veloce e su misura.",
+			primaryCta: "Avvia un progetto video",
 			secondaryCta: "Contattaci",
 		},
 		intro: {
 			titleStart:
-				"Marknet connette professionisti del mondo creativo e digitale con brand, agenzie e startup che cercano talenti veri. Nessun annuncio generico, nessuna candidatura nel vuoto. ",
+				"Marknet connette brand, agenzie e creator con i professionisti video giusti per ogni tipo di produzione.",
 			paragraphOne:
-				"Marknet nasce per mettere in relazione brand e specialisti verticali in: Strategia, Brand Design, Content Creation ed Eventi. Riducendo la distanza tra idea, execution e risultati.",
+				"Video editor, operatori, drone pilot, motion designer e content creator. Selezioniamo i talenti dal nostro network e componiamo il team in base al tuo progetto, al tuo formato e alle tue scadenze.",
 		},
 		services: {
-			title: "Il team giusto per ogni progetto",
+			title: "Scegli la produzione. Pensiamo noi al team.",
 			items: [
 				{
-					title: "Video Editor",
+					title: "Content Creation",
 					badges: [
-						"Positioning",
-						"Value Proposition",
-						"Brand Architecture",
+						"Social Video",
+						"Reels & Shorts",
+						"YouTube",
+						"TikTok",
+						"UGC",
+						"Brand Content",
 						"Storytelling",
-						"Tone of Voice",
-						"Brand System",
-						"Web Design",
 					],
 					description:
-						"Dalla value proposition al brand system, costruiamo una base solida su cui far camminare campagne, contenuti, lanci e rebranding.",
-					buttonText: "Richiedi team di Video Editing",
+						"Produciamo contenuti video per social media, campagne brand e piattaforme digitali. Dalla sceneggiatura alle riprese, fino al montaggio e alla distribuzione multipiattaforma.",
+					buttonText: "Attiva Content Creation",
 				},
 				{
-					title: "Content Creator",
+					title: "Spot Pubblicitari",
 					badges: [
-						"Editorial Strategy",
-						"Social Formats",
-						"Copywriting",
-						"Platform Content",
-						"Performance Monitoring",
+						"TV",
+						"Digital",
+						"Pre-roll",
+						"Campagne Social",
+						"Branded Content",
+						"Out-of-Home",
+						"Lancio Prodotto",
 					],
 					description:
-						"Format originali, storytelling e piani editoriali pensati per mantenere coerenza narrativa e rilevanza nel tempo.",
-					buttonText: "Richiedi team di Content Creation",
+						"Produciamo spot per TV, digital e piattaforme social. Dal concept alla consegna, con un team composto da regista, DOP, crew di ripresa e post-produzione completa.",
+					buttonText: "Attiva Spot Pubblicitari",
 				},
 				{
-					title: "Operatori Video",
+					title: "Produzioni Cinematografiche",
 					badges: [
-						"Digital Strategy",
-						"Audience Development",
-						"Campaign Planning",
-						"SEO Optimization",
-						"Analytics",
-						"Performance Growth",
+						"Cortometraggi",
+						"Documentari",
+						"Web Series",
+						"Film Istituzionali",
+						"Lungometraggi",
+						"Videoclip",
+						"Fiction",
 					],
 					description:
-						"Strategie, contenuti e dati lavorano insieme per generare valore misurabile.",
-					buttonText: "Richiedi team di Marketing",
+						"Assembliamo crew complete per produzioni cinematografiche di qualsiasi scala: dal cortometraggio indipendente al documentario per piattaforme streaming, fino alla fiction e al film istituzionale.",
+					buttonText: "Attiva una Produzione Cinematografica",
 				},
 				{
-					title: "Drone Pilot",
+					title: "Video Corporate",
 					badges: [
-						"Experience Design",
-						"Live Production",
-						"Content Coverage",
-						"Social Amplification",
-						"Audience Engagement",
-						"KPI Measurement",
+						"Presentazioni Aziendali",
+						"Interviste",
+						"Formazione",
+						"Video Prodotto",
+						"Recruitment",
+						"Investor Relations",
+						"Istituzionale",
 					],
 					description:
-						"Eventi e conferenze diventano asset di comunicazione che generano valore, contenuti riutilizzabili e impatto misurabile.",
-					buttonText: "Richiedi team di Eventi",
+						"Video aziendali per presentazioni, formazione, lancio prodotto e comunicazione interna. Produzioni rapide, curate nel dettaglio e pronte per ogni canale di distribuzione.",
+					buttonText: "Attiva Video Corporate",
 				},
 				{
-					title: "Motion Graphics Designer",
+					title: "Eventi & Convegni",
 					badges: [
-						"Experience Design",
-						"Live Production",
-						"Content Coverage",
-						"Social Amplification",
-						"Audience Engagement",
-						"KPI Measurement",
+						"Conferenze",
+						"Fiere",
+						"Convention",
+						"Lanci di Prodotto",
+						"Award Ceremony",
+						"Summit",
+						"Multicam",
 					],
 					description:
-						"Eventi e conferenze diventano asset di comunicazione che generano valore, contenuti riutilizzabili e impatto misurabile.",
-					buttonText: "Richiedi team di Motion Graphics",
+						"Riprese professionali per eventi, conferenze, fiere e convention. Crew multicamera, regia in tempo reale e post-produzione per trasformare ogni evento in un asset di comunicazione.",
+					buttonText: "Attiva Riprese Evento",
+				},
+				{
+					title: "Live Streaming",
+					badges: [
+						"Webinar",
+						"Conferenze Online",
+						"Lanci in Diretta",
+						"YouTube Live",
+						"LinkedIn Live",
+						"Multipiattaforma",
+						"Ibrido",
+					],
+					description:
+						"Gestiamo la regia e la distribuzione di eventi in diretta su YouTube, LinkedIn, Vimeo e piattaforme custom. Setup multicamera, grafiche in tempo reale e archivio in alta qualità.",
+					buttonText: "Attiva Live Streaming",
+				},
+				{
+					title: "Riprese Aeree con Drone",
+					badges: [
+						"Immobiliare",
+						"Industria",
+						"Turismo",
+						"Cinema",
+						"Costruzioni",
+						"Paesaggio",
+						"4K / RAW",
+					],
+					description:
+						"Riprese aeree con pilot certificati ENAC per ogni tipo di progetto: real estate, turismo, industria, spot e cinema. Materiale in 4K o RAW, pronto per la post-produzione.",
+					buttonText: "Attiva Riprese Aeree",
+				},
+				{
+					title: "Documentari",
+					badges: [
+						"Documentari Sociali",
+						"Reportage",
+						"Brand Documentary",
+						"Docu-serie",
+						"Piattaforme Streaming",
+						"Broadcast",
+						"Festival",
+					],
+					description:
+						"Produciamo documentari per piattaforme streaming, broadcast e festival. Dal reportage aziendale alla docu-serie originale, con un team editoriale e tecnico dedicato.",
+					buttonText: "Attiva Produzione Documentario",
+				},
+				{
+					title: "Videoclip & Musica",
+					badges: [
+						"Videoclip Ufficiali",
+						"Lyric Video",
+						"Behind the Scenes",
+						"Live Session",
+						"EPK",
+						"Concert Film",
+						"Promo",
+					],
+					description:
+						"Videoclip ufficiali, live session e EPK per artisti e label. Crew creative con esperienza nel settore musicale, capaci di trasformare un brano in una narrazione visiva.",
+					buttonText: "Attiva Videoclip",
+				},
+				{
+					title: "Post-produzione",
+					badges: [
+						"Montaggio",
+						"Color Grading",
+						"VFX",
+						"Motion Graphics",
+						"Sound Design",
+						"Mix Audio",
+						"Finalizzazione",
+					],
+					description:
+						"Servizi completi di post-produzione: montaggio, color grading, VFX, motion graphics e sound design. Disponibile anche per materiale già girato che ha bisogno di una post-produzione di qualità.",
+					buttonText: "Attiva Post-produzione",
 				},
 			],
 		},
 		howItWorks: {
 			label: "Come funziona",
-			title: "Quattro passi per avviare il tuo progetto",
+			title: "Dal brief al video in quattro passi",
 			steps: [
 				{
 					number: "01",
-					title: "Inviaci il brief del progetto",
+					title: "Inviaci il brief",
 					description:
-						"Raccontaci l'obiettivo, il contesto e i tempi. Più dettagli ci dai, più il team sarà calibrato sulle tue esigenze.",
+						"Descrivi il progetto: tipo di video, formato, durata, date di ripresa e scadenza di consegna. Più il brief è preciso, più i professionisti saranno calibrati sulle tue esigenze.",
 				},
 				{
 					number: "02",
-					title: "Selezioniamo i professionisti adatti",
+					title: "Selezioniamo i professionisti",
 					description:
-						"Identifichiamo le figure più adatte dal nostro network di specialisti verticali e componiamo il team su misura per il progetto.",
+						"Identifichiamo i profili più adatti dal nostro network per competenze, stile, disponibilità e attrezzatura — e li proponiamo entro 24 ore.",
 				},
 				{
 					number: "03",
 					title: "Avviamo la produzione",
 					description:
-						"Il team entra in azione con un flusso di lavoro chiaro, milestone definite e aggiornamenti costanti per garantire qualità e rispetto delle scadenze.",
+						"Entriamo in azione con un flusso di lavoro definito, milestone chiare e aggiornamenti costanti per garantire qualità e rispetto delle scadenze.",
 				},
 				{
 					number: "04",
-					title: "Consegniamo il progetto",
+					title: "Consegniamo i file",
 					description:
-						"Deliverable curati, revisionati e pronti all'uso. Il progetto viene consegnato nei tempi stabiliti, con tutto ciò che ti serve per andare live.",
+						"Materiale revisionato e pronto per la distribuzione. Consegna nei formati richiesti, nei tempi stabiliti, senza sorprese.",
 				},
 			],
 		},
 		homeCta: {
 			label: "Lavoriamo insieme",
-			title: "Il tuo brand ha bisogno del miglior team",
+			title: "Hai un progetto video da avviare?",
 			description:
-				"Dalla brand identity alla content strategy, dal digitale agli eventi: costruiamo il team giusto per ogni fase del tuo progetto.",
-			primaryCta: "Attiva un nuovo progetto",
+				"Spot, documentari, contenuti social, riprese aeree o animazioni: troviamo il professionista giusto e avviamo la produzione in tempi rapidi.",
+			primaryCta: "Avvia un progetto video",
 		},
 		recruitingCta: {
 			label: "Entra nel network",
-			title: "Sei un professionista del mondo creativo?",
+			title: "Sei un professionista del video?",
 			description:
-				"Lavoriamo con videomaker, operatori, drone pilot, motion designer ed editor. Se hai competenze verticali e vuoi far parte di un network selezionato, raccontaci chi sei.",
+				"Lavoriamo con video editor, operatori, drone pilot, motion designer e content creator. Se hai competenze verticali nel mondo video e vuoi far parte di un network selezionato, raccontaci chi sei.",
 			primaryCta: "Unisciti al team",
 		},
 		footer: {
@@ -148,10 +228,11 @@ export const dictionaries = {
 			services: {
 				label: "Servizi",
 				items: [
-					{ label: "Brand Strategy", href: "/services" },
 					{ label: "Content Creation", href: "/services" },
-					{ label: "Marketing", href: "/services" },
-					{ label: "Event", href: "/services" },
+					{ label: "Spot Pubblicitari", href: "/services" },
+					{ label: "Produzioni Cinematografiche", href: "/services" },
+					{ label: "Video Corporate", href: "/services" },
+					{ label: "Eventi & Convegni", href: "/services" },
 				],
 			},
 			contact: {
@@ -168,122 +249,213 @@ export const dictionaries = {
 		hero: {
 			title: "Connecting Minds and Brands",
 			description:
-				"Marknet brings together strategy, content, design, digital and events to build brands that are coherent, recognizable and performance-driven.",
-			primaryCta: "Start your project",
+				"A curated network of video professionals for every stage of your production. From brief to delivery, fast and tailored to your project.",
+			primaryCta: "Start a video project",
 			secondaryCta: "Contact us",
 		},
 		intro: {
-			titleStart: "We are not an agency. We are the",
-			highlight: "direction",
-			titleEnd: "behind your communication projects",
+			titleStart:
+				"Marknet connects brands, agencies and creators with the right video professionals for any type of production.",
 			paragraphOne:
-				"Marknet connects brands with vertical specialists across strategy, content, design, digital and events, reducing the distance between idea, execution and results.",
-			paragraphTwo:
-				"Every project takes shape inside a network guided by a shared vision, so that every activation, campaign, content piece or platform reinforces the same brand identity.",
+				"Video editors, camera operators, drone pilots, motion designers and content creators. We select the talent from our network and assemble the team based on your project, your format and your deadlines.",
 		},
 		services: {
-			title: "We assemble the right team for every project",
+			title: "Choose the production. We'll build the team.",
 			items: [
-				{
-					title: "Brand Strategy",
-					badges: [
-						"Positioning",
-						"Value Proposition",
-						"Brand Architecture",
-						"Storytelling",
-						"Tone of Voice",
-						"Brand System",
-						"Web Design",
-					],
-					description:
-						"We define the shared path that aligns positioning, messaging, identity and strategic direction. From value proposition to brand system, we build the foundation that supports campaigns, content, launches and rebranding.",
-					buttonText: "Activate the Brand Strategy team",
-				},
 				{
 					title: "Content Creation",
 					badges: [
-						"Editorial Strategy",
-						"Social Formats",
-						"Copywriting",
-						"Platform Content",
-						"Performance Monitoring",
+						"Social Video",
+						"Reels & Shorts",
+						"YouTube",
+						"TikTok",
+						"UGC",
+						"Brand Content",
+						"Storytelling",
 					],
 					description:
-						"We create content that gives brands a distinct voice and generates real engagement across platforms. Original formats, storytelling and editorial planning designed to maintain narrative consistency and long-term relevance.",
-					buttonText: "Activate the Content Creation team",
+						"We produce video content for social media, brand campaigns and digital platforms. From scripting to shooting, editing and multi-platform distribution.",
+					buttonText: "Start Content Creation",
 				},
 				{
-					title: "Marketing",
+					title: "Advertising & Commercials",
 					badges: [
-						"Digital Strategy",
-						"Audience Development",
-						"Campaign Planning",
-						"SEO Optimization",
-						"Analytics",
-						"Performance Growth",
+						"TV",
+						"Digital",
+						"Pre-roll",
+						"Social Campaigns",
+						"Branded Content",
+						"Out-of-Home",
+						"Product Launch",
 					],
 					description:
-						"We design digital platforms and marketing activations that do more than inform — they guide brands toward conversion and growth. Strategy, content and data work together to generate measurable value.",
-					buttonText: "Activate the Marketing team",
+						"We produce commercials for TV, digital and social platforms. From concept to delivery, with a dedicated team including director, DOP, shoot crew and full post-production.",
+					buttonText: "Start Advertising Production",
 				},
 				{
-					title: "Event",
+					title: "Film & Cinema",
 					badges: [
-						"Experience Design",
-						"Live Production",
-						"Content Coverage",
-						"Social Amplification",
-						"Audience Engagement",
-						"KPI Measurement",
+						"Short Films",
+						"Documentaries",
+						"Web Series",
+						"Institutional Film",
+						"Feature Film",
+						"Music Video",
+						"Fiction",
 					],
 					description:
-						"We design live experiences meant to be lived, told and amplified. Launches, conferences and activations become communication assets that generate buzz, reusable content and measurable impact.",
-					buttonText: "Activate the Event team",
+						"We assemble full crews for film productions of any scale: from independent short films to streaming documentaries, institutional films and fiction series.",
+					buttonText: "Start a Film Production",
+				},
+				{
+					title: "Corporate Video",
+					badges: [
+						"Company Presentations",
+						"Interviews",
+						"Training",
+						"Product Video",
+						"Recruitment",
+						"Investor Relations",
+						"Institutional",
+					],
+					description:
+						"Corporate videos for presentations, training, product launches and internal communications. Fast turnaround, attention to detail and ready for every distribution channel.",
+					buttonText: "Start Corporate Video",
+				},
+				{
+					title: "Events & Conferences",
+					badges: [
+						"Conferences",
+						"Trade Shows",
+						"Conventions",
+						"Product Launches",
+						"Award Ceremonies",
+						"Summits",
+						"Multicam",
+					],
+					description:
+						"Professional video coverage for events, conferences, trade shows and conventions. Multicam crews, real-time switching and post-production to turn every event into a lasting communication asset.",
+					buttonText: "Start Event Coverage",
+				},
+				{
+					title: "Live Streaming",
+					badges: [
+						"Webinars",
+						"Online Conferences",
+						"Live Launches",
+						"YouTube Live",
+						"LinkedIn Live",
+						"Multi-platform",
+						"Hybrid Events",
+					],
+					description:
+						"We manage direction and live distribution on YouTube, LinkedIn, Vimeo and custom platforms. Multicam setup, real-time graphics and high-quality archive recording.",
+					buttonText: "Start Live Streaming",
+				},
+				{
+					title: "Aerial & Drone",
+					badges: [
+						"Real Estate",
+						"Industrial",
+						"Tourism",
+						"Cinema",
+						"Construction",
+						"Landscape",
+						"4K / RAW",
+					],
+					description:
+						"Aerial footage with ENAC-certified pilots for any project: real estate, tourism, industrial, commercials and cinema. Material in 4K or RAW, ready for post-production.",
+					buttonText: "Start Aerial Production",
+				},
+				{
+					title: "Documentaries",
+					badges: [
+						"Social Documentaries",
+						"Reportage",
+						"Brand Documentary",
+						"Docu-series",
+						"Streaming Platforms",
+						"Broadcast",
+						"Film Festivals",
+					],
+					description:
+						"We produce documentaries for streaming platforms, broadcast and film festivals. From corporate reportage to original docu-series, with a dedicated editorial and technical team.",
+					buttonText: "Start a Documentary",
+				},
+				{
+					title: "Music Video",
+					badges: [
+						"Official Music Video",
+						"Lyric Video",
+						"Behind the Scenes",
+						"Live Session",
+						"EPK",
+						"Concert Film",
+						"Promo",
+					],
+					description:
+						"Official music videos, live sessions and EPKs for artists and labels. Creative crews with experience in the music industry, turning a track into a visual story.",
+					buttonText: "Start a Music Video",
+				},
+				{
+					title: "Post-production",
+					badges: [
+						"Editing",
+						"Color Grading",
+						"VFX",
+						"Motion Graphics",
+						"Sound Design",
+						"Audio Mix",
+						"Finishing",
+					],
+					description:
+						"Full post-production services: editing, color grading, VFX, motion graphics and sound design. Also available for already-shot material that needs a professional finishing touch.",
+					buttonText: "Start Post-production",
 				},
 			],
 		},
 		howItWorks: {
 			label: "How it works",
-			title: "Four steps to launch your project",
+			title: "From brief to final video in four steps",
 			steps: [
 				{
 					number: "01",
-					title: "Send us your project brief",
+					title: "Send us your brief",
 					description:
-						"Tell us the goal, context and timeline. The more detail you share, the better we can calibrate the team to your needs.",
+						"Tell us about the project: video type, format, duration, shoot dates and delivery deadline. The more detail you provide, the better we match the professional to your needs.",
 				},
 				{
 					number: "02",
-					title: "We select the right professionals",
+					title: "We select the right professional",
 					description:
-						"We identify the most suitable profiles from our network of vertical specialists and assemble a team tailored to your project.",
+						"We find the best match from our network — based on skills, style, availability and equipment — and present them within 24 hours.",
 				},
 				{
 					number: "03",
-					title: "We start production",
+					title: "Production starts",
 					description:
-						"The team gets to work with a clear workflow, defined milestones and consistent updates to ensure quality and on-time delivery.",
+						"The professional gets to work with a defined workflow, clear milestones and regular updates to ensure quality and on-time delivery.",
 				},
 				{
 					number: "04",
-					title: "We deliver the project",
+					title: "We deliver the files",
 					description:
-						"Polished, reviewed deliverables ready to use. The project is handed over on schedule with everything you need to go live.",
+						"Reviewed, distribution-ready material. Delivered in the required formats, on schedule, with no surprises.",
 				},
 			],
 		},
 		homeCta: {
 			label: "Let's work together",
-			title: "Your brand deserves a tailored strategy.",
+			title: "Got a video project to launch?",
 			description:
-				"From brand identity to content strategy, from digital to events: we assemble the right team for every stage of your project.",
-			primaryCta: "Start your project",
+				"Commercials, documentaries, social content, aerial footage or animation: we find the right professional and get production moving fast.",
+			primaryCta: "Start a video project",
 		},
 		recruitingCta: {
 			label: "Join the network",
-			title: "Are you a creative professional?",
+			title: "Are you a video professional?",
 			description:
-				"We work with videomakers, camera operators, drone pilots, motion designers and editors. If you have vertical expertise and want to be part of a curated network, tell us who you are.",
+				"We work with video editors, camera operators, drone pilots, motion designers and content creators. If you have deep expertise in video production and want to join a curated network, tell us about yourself.",
 			primaryCta: "Join the team",
 		},
 		footer: {
@@ -300,10 +472,11 @@ export const dictionaries = {
 			services: {
 				label: "Services",
 				items: [
-					{ label: "Brand Strategy", href: "/services" },
-					{ label: "Content Creation", href: "/services" },
-					{ label: "Marketing", href: "/services" },
-					{ label: "Event", href: "/services" },
+					{ label: "Video Editor", href: "/services" },
+					{ label: "Content Creator", href: "/services" },
+					{ label: "Camera Operator", href: "/services" },
+					{ label: "Drone Pilot", href: "/services" },
+					{ label: "Motion Designer", href: "/services" },
 				],
 			},
 			contact: {

@@ -11,7 +11,7 @@ const logos = Array.from({ length: 8 }, (_, index) => ({
 
 export default function LogosSection() {
 	return (
-		<section className="relative w-full overflow-hidden bg-surface py-12">
+		<section className="relative w-full overflow-hidden bg-surface py-8">
 			<div className="relative flex overflow-hidden">
 				<motion.div
 					className="flex gap-8 md:gap-12"

@@ -13,7 +13,7 @@ export default function HeroSection() {
 	return (
 		<section className="relative min-h-[calc(60vh)] flex items-center justify-center overflow-hidden bg-bg-primary">
 			{/* Add a video background if needed, currently commented out for performance reasons. */}
-			{/*
+
 			<video
 				className="absolute inset-0 h-full w-full object-cover"
 				autoPlay
@@ -25,14 +25,13 @@ export default function HeroSection() {
 			>
 				<source src={HERO_VIDEO_URL} type="video/mp4" />
 			</video>
-			*/}
 
-			<div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center py-24 text-center ">
+			<div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center py-24 text-center ">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					className=" font-display font-bold leading-tight tracking-tight text-hero md:text-hero lg:text-hero text-foreground max-w-7xl"
+					className=" font-display font-black leading-tight tracking-tight text-hero md:text-hero lg:text-hero text-foreground max-w-7xl uppercase"
 				>
 					{hero.title}
 				</motion.h1>

@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FileText, Users, Clapperboard, PackageCheck } from "lucide-react";
 import { useMessages } from "@/providers/LocaleProvider";
+
+const STEP_ICONS = [FileText, Users, Clapperboard, PackageCheck];
 
 export default function HowItWorksSection() {
 	const { howItWorks } = useMessages();
@@ -20,38 +23,47 @@ export default function HowItWorksSection() {
 					<span className="font-body text-sm font-medium uppercase tracking-widest text-text-secondary">
 						{howItWorks.label}
 					</span>
-					<h2 className="max-w-full font-display text-3xl font-semibold leading-tight tracking-tight text-text-primary md:text-3xl">
+					<h2 className="max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-text-primary">
 						{howItWorks.title}
 					</h2>
 				</motion.div>
 
-				{/* Steps list */}
-				<ol className="flex flex-col">
-					{howItWorks.steps.map((step, index) => (
-						<motion.li
-							key={step.number}
-							initial={{ opacity: 0, y: 24 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true, margin: "0px 0px -60px 0px" }}
-							transition={{ duration: 0.5, delay: index * 0.08 }}
-							className="group flex flex-col gap-4 border-t border-border py-8 md:flex-row md:items-start md:gap-12"
-						>
-							<div className="flex flex-1 flex-col gap-2 md:flex-row md:items-start md:gap-12">
-								<span className="flex h-10 w-10 items-center justify-center text-xl font-bold text-foreground">
-									{step.number}
-								</span>
-								<h3 className="w-full font-display text-xl font-semibold leading-snug tracking-tight text-text-primary md:w-72 md:shrink-0">
-									{step.title}
-								</h3>
-								<p className="max-w-prose font-body text-base leading-relaxed text-foreground">
-									{step.description}
-								</p>
-							</div>
-						</motion.li>
-					))}
-					{/* closing border */}
-					<li className="border-t border-border" aria-hidden="true" />
-				</ol>
+				{/* Cards grid */}
+				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+					{howItWorks.steps.map((step, index) => {
+						const Icon = STEP_ICONS[index] ?? FileText;
+						return (
+							<motion.div
+								key={step.number}
+								initial={{ opacity: 0, y: 24 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true, margin: "0px 0px -60px 0px" }}
+								transition={{ duration: 0.5, delay: index * 0.08 }}
+								className="flex flex-col gap-5 rounded-2xl border border-border bg-bg-secondary p-6"
+							>
+								<div className="flex items-center justify-between">
+									<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-bg-primary">
+										<Icon
+											className="h-5 w-5 text-text-primary"
+											strokeWidth={1.5}
+										/>
+									</div>
+									<span className="font-body text-xs font-medium tabular-nums text-text-secondary/50">
+										{step.number}
+									</span>
+								</div>
+								<div className="flex flex-col gap-2">
+									<h3 className="font-display text-base font-semibold leading-snug tracking-tight text-text-primary">
+										{step.title}
+									</h3>
+									<p className="font-body text-sm leading-relaxed text-text-secondary">
+										{step.description}
+									</p>
+								</div>
+							</motion.div>
+						);
+					})}
+				</div>
 			</div>
 		</section>
 	);

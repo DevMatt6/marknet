@@ -28,7 +28,7 @@ export default function ServicesSection() {
 
 	return (
 		<section className="relative overflow-hidden py-24">
-			<div className="absolute inset-0 bg-surface" />
+			<div className="absolute inset-0 bg-bg-primary" />
 
 			<div className="relative z-10 mx-auto max-w-full px-4 sm:px-6 lg:px-8">
 				<motion.div
@@ -46,7 +46,7 @@ export default function ServicesSection() {
 						orientation="horizontal"
 					>
 						<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-							<h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-text-primary">
+							<h2 className="max-w-lg font-display text-3xl font-semibold leading-tight tracking-tight text-text-primary">
 								{services.title}
 							</h2>
 							<div className="flex items-center gap-2">
@@ -67,7 +67,7 @@ export default function ServicesSection() {
 										<div className="p-2">
 											<Card
 												size="flush"
-												className="group/card flex h-[620px] flex-col rounded-none bg-transparent shadow-none transition-transform duration-500 ease-out hover:scale-[1.02]"
+												className="group/card flex h-[520px] flex-col rounded-none bg-transparent shadow-none transition-transform duration-500 ease-out hover:scale-[1.02]"
 											>
 												<div className="relative h-full w-full overflow-hidden rounded-xl bg-muted">
 													<Image

@@ -107,7 +107,7 @@ export default function Footer() {
 
 	return (
 		<footer className="bg-bg-secondary">
-			<div className="mx-auto w-full max-w-full px-5 sm:px-8 lg:px-10">
+			<div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
 				{/* Main grid */}
 				<motion.div
 					className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1fr_auto_auto_auto] md:gap-16 lg:gap-24"
